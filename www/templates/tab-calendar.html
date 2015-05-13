@@ -1,0 +1,11 @@
+<ion-view view-title="{{UI.labels[UI.lang].nav.calendar}}">
+    <ion-content>
+        <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-list ng-repeat="item in items">
+            <ion-toggle ng-model="settings.enableFriends">
+                {{item}}
+            </ion-toggle>
+        </ion-list>
+    </ion-content>
+</ion-view>

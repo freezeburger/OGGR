@@ -1,0 +1,15 @@
+`<ion-view view-title="{{UI.labels[UI.lang].nav.language}}">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="lang in UI.languages" class="item item-radio" ng-click="close()">
+                <label>
+                    <input type="radio" name="group" ng-click="UI.lang = lang.code" ng-checked="UI.lang == lang.code;" >
+                    <div class="item-content">
+                       {{::lang.name}}
+                    </div>
+                    <i class="radio-icon ion-checkmark"></i>
+                </label>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-view view-title="{{UI.labels[UI.lang].nav.dashboard}}">
+  <ion-content class="padding">
+    <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
+    </ion-refresher>
+    <div class="list card">
+      <div class="item item-divider">Recent Updates</div>
+      <div class="item item-body">
+        <div class="padding">
+          There is a new status for <b><a href="#">Mark Miller</a></b>.
+        </div>
+        <div>
+          Event  <b><a href="#">Concert Boule Noire</a></b> has been rescheduled.
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">ToDo List</div>
+      <div class="item item-body">
+        <div>
+          Nothing yet, how about some rest.
+        </div>
+      </div>
+    </div>
+    <div class="list card">
+      <div class="item item-divider">Upcoming</div>
+      <div class="item item-body">
+        <div>
+          You have <b>29</b> meetings on your calendar tomorrow.
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
