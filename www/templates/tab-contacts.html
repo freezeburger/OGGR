@@ -1,14 +1,14 @@
 <ion-view view-title="{{UI.labels[UI.lang].nav.contacts}}">
-    <ion-header-bar class="bar-stable bar-subheader item-input-inset" ng-class="{'bar-subheader-slide-away': slideHeader}">
-        <label class="item-input-wrapper">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input type="search" placeholder="" ng-model="search.name">
-        </label>
-        <button class="button button-clear" ng-click="search=''">
-            <i class="icon ion-close" ng-class="{'ion-ios-close-empty':!search,'ion-ios-close-outline':search}"></i>
-        </button>
-    </ion-header-bar>
-    <ion-content oggr-hide-sub-header-on-scroll>
+    <ion-content>
+        <ion-header-bar class="bar-stable item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="" ng-model="search.name">
+            </label>
+            <button class="button button-clear" ng-click="search=''">
+                <i class="icon ion-close" ng-class="{'ion-ios-close-empty':!search,'ion-ios-close-outline':search}"></i>
+            </button>
+        </ion-header-bar>
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:search" type="item-text-wrap" href="#/o/tab/contacts/{{::contact.id}}">
                 <img ng-src="{{::contact.face}}">

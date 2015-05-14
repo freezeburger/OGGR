@@ -84,7 +84,7 @@ a{
 }
 
 /* Sub header*/
-.bar-subheader {
+/*.bar-subheader {
   z-index: 1;
   top:44px;
   transition: top 0.35s ease;
@@ -100,7 +100,7 @@ a{
 .subheader-hidden{
   top:0;
 }
-
+*/
 
 /*Dark list */
 .dark {
