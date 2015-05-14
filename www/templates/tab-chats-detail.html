@@ -1,4 +1,4 @@
-<ion-view view-title="{{chat.name}}">
+<ion-view view-title="{{chatRoomName}}">
     <ion-content>
         <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
         </ion-refresher>
@@ -15,7 +15,7 @@
             <ol class="messages">
                 <!-- <li ng-repeat="message in messages" ng-bind-html="message.content"> -->
                 <li ng-repeat="message in messages" o,n-hold="getActions()">
-                    <chat-message ><chat-message>    
+                    <oggr-chat-message ><oggr-chat-message>    
                 </li>
             </ol>
         </div>
