@@ -46,27 +46,13 @@
     });
 
     app.controller('CalendarCtrl', ['$scope', function($scope) {
-        // ... code omitted ...
-        // Dates can be passed as strings or Date objects 
+
         function getDateToString(date){
             var d = date || new Date();
             d = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-');
             return d;
 
         }
-        getDateToString()
-        $scope.calendarOptions = {
-            defaultDate: getDateToString(),//"2016-05-16",
-            minDate: new Date([2015, 03, 31]),
-            maxDate: new Date([2020, 12, 31]),
-            dayNamesLength: 1, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
-            // eventClick: function(e){
-            //     console.log('event',e);
-            //     console.log($scope);
-            //     $scope.selectedEvents = e.events;
-            // },
-            // dateClick: function(e){console.log('date',e)}
-        };
 
         $scope.$on('OGGR.Calendar.Events.CLICK', function (evt,date) {
            $scope.selectedEvents = date.events;
@@ -114,7 +100,7 @@
         },{
             id:7,
             title: 'Another Event....',
-            date: new Date([2015, 5, 16]),
+            date: new Date([2015, 6, 16]),
             description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
             complete:false
         }]
