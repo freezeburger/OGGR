@@ -35,6 +35,11 @@
                     venue: 'Venue',
                     crew: 'Crew',
                     signOff: 'Sign-Off',
+                    taskManager: 'Task Manager',
+                    planning: 'Personnal Planning',
+                    files:'Files',
+                    reminder:'Reminder',
+                    map:'Map'
                 },
                 action: {
                     delete: 'Delete',
@@ -46,6 +51,7 @@
                     signIn: 'Sign-In',
                     refresh: 'Pull to refresh...',
                     facebook: 'Login with Facebook',
+                    fileUpload: 'Add a new file.',
                 },
                 forms: {
                     userName: 'Username',

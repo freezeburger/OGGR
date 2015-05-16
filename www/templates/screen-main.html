@@ -21,16 +21,61 @@
             <h1 class="title">Menu</h1>
         </ion-header-bar>
         <ion-content>
-            <ul class="list">
+            <div class="list oggr-menu">
                 <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
-                <a href="#/o/tab/pulse" class="item" menu-close>{{UI.labels[UI.lang].nav.pulse}}</a>
-                <a href="#/o/tab/calendar" class="item" menu-close>{{UI.labels[UI.lang].nav.calendar}}</a>
-                <a href="#/o/tab/dashboard" class="item" menu-close>{{UI.labels[UI.lang].nav.dashboard}}</a>
-                <a href="#/o/tab/contacts" class="item" menu-close>{{UI.labels[UI.lang].nav.contacts}}</a>
-                <a href="#/o/tab/chats" class="item" menu-close>{{UI.labels[UI.lang].nav.chat}}</a>
-                <a href="#/o/tab/venue" class="item" menu-close>{{UI.labels[UI.lang].nav.venue}}</a>
-                <a href="#/o/tab/crew" class="item" menu-close>{{UI.labels[UI.lang].nav.crew}}</a>
-            </ul>
+                <a href="#/o/tab/dashboard" class="item item-divider item-icon-left" menu-close>
+                    <i class="icon ion-ios-flame"></i>
+                    {{UI.labels[UI.lang].nav.dashboard}}
+                </a>
+                <a href="#/o/tab/calendar" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-calendar-outline"></i>
+                    {{UI.labels[UI.lang].nav.calendar}}
+                </a>
+                <a href="#/o/tab/pulse" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-pulse"></i>
+                    {{UI.labels[UI.lang].nav.pulse}}
+                </a>
+
+                <a href="#/o/tab/map" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-navigate-outline"></i>
+                    {{UI.labels[UI.lang].nav.map}}
+                </a>
+                
+                <a href="#/o/tab/taskManager" class="item item item-divider item-icon-left" menu-close>
+                    <i class="icon ion-clipboard"></i>
+                    {{UI.labels[UI.lang].nav.taskManager}}
+                </a>
+                <a href="#/o/tab/reminder" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-bell-outline"></i>
+                    {{UI.labels[UI.lang].nav.reminder}}
+                    <span class="badge badge-assertive item-icon-left">0</span>
+                </a>
+                <a href="#/o/tab/files" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-download-outline"></i>
+                    {{UI.labels[UI.lang].nav.files}}
+                </a>
+
+                <a href="#/o/tab/planning" class="item item item-icon-left" menu-close>
+                    <i class="icon ion-ios-timer-outline"></i>
+                    {{UI.labels[UI.lang].nav.planning}}
+                </a>
+
+                <a href="#/o/tab/contacts" class="item item-divider item-icon-left" menu-close>
+                    <i class="icon ion-ios-person"></i>
+                    {{UI.labels[UI.lang].nav.contacts}}
+                </a>
+                <a href="#/o/tab/chats" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-chatboxes-outline"></i>
+                    {{UI.labels[UI.lang].nav.chat}}
+                </a>
+                <a href="#/o/tab/crew" class="item item-icon-left" menu-close>
+                    <i class="icon ion-ios-people-outline"></i>
+                    {{UI.labels[UI.lang].nav.crew}}
+                </a>
+                
+               
+                
+            </div>
         </ion-content>
     </ion-side-menu>
     <ion-side-menu side="right" class="dark">

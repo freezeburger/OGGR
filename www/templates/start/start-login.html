@@ -1,0 +1,25 @@
+<ion-view view-title="{{UI.labels[UI.lang].nav.login}}'" >
+    <ion-content class="padding" style="top:45vh;">
+        <div class="list" >
+            <label class="item item-input">
+                <span class="input-label">{{UI.labels[UI.lang].forms.userName}}</span>
+                <input type="text" ng-model="user.username">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">{{UI.labels[UI.lang].forms.password}}</span>
+                <input type="password" ng-model="user.password">
+            </label>
+        </div>
+        <div>
+            <button class="button button-block button-royal" ng-click="signIn(user)">
+                {{UI.labels[UI.lang].action.signIn}}
+            </button>
+            <button class="button button-block button-royal" ng-click="fbLogin()">
+                {{UI.labels[UI.lang].action.facebook}}
+            </button>
+            <p class="text-center">
+                <a href="#/start/forgot">{{UI.labels[UI.lang].nav.forgot}}</a>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

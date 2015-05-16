@@ -24,19 +24,10 @@
     });
 
     app.controller('PulseCtrl', function($scope) {
-        $scope.settings = {
-            enableFriends: true
-        };
-        $scope.items = [1, 2, 3];
+
         $scope.doRefresh = function() {
-            $scope.items.push(Math.random())
-            $http.get('/new-items')
-                .success(function(newItems) {
-                    //$scope.items = newItems;
-                })
-                .finally(function() {
-                    $scope.$broadcast('scroll.refreshComplete');
-                });
+            $scope.$broadcast('scroll.refreshComplete');
+
         };
     });
 
@@ -94,19 +85,19 @@
 
     });
 
-    app.controller('ChatsDetailCtrl', function($scope, $stateParams, Chats, $ionicScrollDelegate, $ionicActionSheet, $timeout,Contacts ,$state) {
-        
-        if(!Chats.get($stateParams.chatId)) return $state.go('oggr.tab.chats');
+    app.controller('ChatsDetailCtrl', function($scope, $stateParams, Chats, $ionicScrollDelegate, $ionicActionSheet, $timeout, Contacts, $state) {
+
+        if (!Chats.get($stateParams.chatId)) return $state.go('oggr.tab.chats');
 
 
         var chatRoom = Chats.get($stateParams.chatId);
 
         $scope.messages = chatRoom.messages;
         $scope.chatRoomName = Contacts.get(chatRoom.contacts[0]).name
-        
-        $timeout(function(){
-             $ionicScrollDelegate.scrollBottom(true);
-        },0);
+
+        $timeout(function() {
+            $ionicScrollDelegate.scrollBottom(true);
+        }, 0);
 
         $scope.getActions = function() {
             console.log(123)
@@ -160,7 +151,7 @@
 
         $scope.doRefresh = function() {
             for (var i = 0, m = Math.floor(Math.random() * 15); i < m; i++) {
-                chatRoom.previousMessage = Math.random() ;
+                chatRoom.previousMessage = Math.random();
             };
             $scope.$broadcast('scroll.refreshComplete');
         };
@@ -207,5 +198,153 @@
         });
     });
 
+    app.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+        
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          style:mapStyles
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
+
+        map.setOptions({styles: mapStyles});
+        
+        //Marker + infowindow + angularjs compiled ng-click
+        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+        var compiled = $compile(contentString)($scope);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: compiled[0]
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+
+        $scope.map = map;
+      }
+      //google.maps.event.addDomListener(window, 'load', initialize);
+      initialize();
+      
+      $scope.centerOnMe = function() {
+        if(!$scope.map) {
+          return;
+        }
+
+        $scope.loading = $ionicLoading.show({
+          content: 'Getting current location...',
+          showBackdrop: false
+        });
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          $scope.loading.hide();
+        }, function(error) {
+          alert('Unable to get location: ' + error.message);
+        });
+      };
+      
+      $scope.clickTest = function() {
+        alert('Example of infowindow with ng-click')
+      };
+      
+    });
+
 
 })();
+
+var mapStyles = [
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "stylers": [
+            {
+                "hue": 149
+            },
+            {
+                "saturation": -78
+            },
+            {
+                "lightness": 0
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "stylers": [
+            {
+                "hue": -45
+            },
+            {
+                "saturation": -20
+            },
+            {
+                "lightness": 2.8
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "label",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "stylers": [
+            {
+                "hue": 163
+            },
+            {
+                "saturation": -26
+            },
+            {
+                "lightness": -1.1
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "stylers": [
+            {
+                "hue": 3
+            },
+            {
+                "saturation": -24.24
+            },
+            {
+                "lightness": -18.57
+            }
+        ]
+    }
+]
