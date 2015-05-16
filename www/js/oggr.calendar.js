@@ -93,35 +93,14 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
             }
             getPrevNextMonth.periods = {};
 
-            // function getPrevNextDate(date) {
-                
-            //     if (getPrevNextDate.periods[date]) return getPrevNextDate.periods[date];
-            //     period = {
-            //         previous: getCalendarDateObject(new Date(date.year, date.month, date.day + 1)),
-            //         next: getCalendarDateObject(new Date(date.year, date.month, date.day - 1)),
-            //     }
-            //     getPrevNextDate.periods[date] = period;
-            //     console.log(date)
-            //     return period;
-            // }
-            // getPrevNextDate.periods = {};
-
             function bindEvent(date,events) {
                 if (!date || !events) return;
 
                 date.events = [];
 
-                //console.time('forEach')
                 events.forEach(function(event) {
                     if (date.title === event.date.toString().substring(0,15)) date.events.push(event);
                 });
-                //console.timeEnd('forEach')
-
-                // console.time('for')
-                // for (var i = events.length - 1; i >= 0; i--) {
-                //   if (date.title === events[i].date.toString().substring(0,15)) date.events.push(events[i]);
-                // };
-                // console.timeEnd('for')
                 
             };
 
