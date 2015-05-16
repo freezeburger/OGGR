@@ -150,9 +150,10 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
             };
             /* initCalendar : init function */
             (function initCalendar() {
+                /* isDate : internal helper to check native Date */
                 function isDate(date) { return (date && date.getDate) ? date : false; };
 
-                config = angular.copy($scope.options) || {};console.log(config)
+                config = angular.copy($scope.options) || {};
                 /* configuration object from options attribute, such as :
                 {
                   defaultDate: "2016-05-16",

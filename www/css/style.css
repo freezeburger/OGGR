@@ -10,6 +10,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
     background-position: center;
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     will-change: transform;
 }
@@ -37,11 +38,11 @@ a{
 	padding:0;
 }
 
-.messages li:nth-child(even) {
+.messages li:nth-of-type(even) {
 	float:right;
 }
 
-.messages li:nth-child(even) img {
+.messages li:nth-of-type(even) img {
 	float:right;
 }
 
@@ -61,6 +62,7 @@ a{
 	height:10px;
 	background:#e6e5eb;
 	position: relative;
+	-webkit-transform:rotate(45deg) translate3d(0,20px,0);
 	transform:rotate(45deg) translate3d(0,20px,0);
 }
 
@@ -71,6 +73,7 @@ a{
 	height:10px;
 	background:#158ffe;
 	float:right;
+	-webkit-transform:rotate(45deg) translate3d(15px,-5px,0);
 	transform:rotate(45deg) translate3d(15px,-5px,0);
 }
 

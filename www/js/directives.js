@@ -15,13 +15,12 @@
         console.log($ionicActionSheet)
         return {
             restrict: 'E',
-            transclude: true,
             replace: true,
-            template: '<div ng-click="getAction()" ng-focus="getAction()"><p ng-bind="message.content" ng-if="!isImage()"></p><img zoomable ng-if="isImage()" ng-src="{{message.content}}"></div>',
+            template: '<a ng-click="getAction()" on-hold="getAction()"><p ng-bind="message.content" ng-if="!isImage()"></p><img zoomable ng-if="isImage()" ng-src="{{message.content}}"></a>',
             link: function(scope, iElement, iAttrs) {
                 //console.log(iElement);
                 scope.isImage = function() {
-                    return /data:/.test(scope.message.content);
+                    return /data:/.test(scope.message.content) ||  /http/.test(scope.message.content);
                 }
             }
         };
