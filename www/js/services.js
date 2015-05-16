@@ -194,8 +194,6 @@
     });
 
     app.factory('Contacts', function() {
-        // Might use a resource here that returns a JSON array
-
         // Some fake testing data
         var contacts = [{
             id: 0,
@@ -240,7 +238,7 @@
             phone: '+971 (0)5 57 08 08 89',
             face: 'https://pbs.twimg.com/profile_images/578237281384841216/R3ae1n61.png'
         }];
-        //OUCH 
+        //TODO remove
         contacts.forEach(function(element, index) {
             contacts.push(angular.copy(element))
         });
