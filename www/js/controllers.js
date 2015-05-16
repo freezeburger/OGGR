@@ -51,7 +51,6 @@
         function getDateToString(date){
             var d = date || new Date();
             d = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-');
-            console.log(d)
             return d;
 
         }

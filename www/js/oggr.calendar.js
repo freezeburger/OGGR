@@ -40,21 +40,13 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
 
             var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             var WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            var calculateSelectedDate, calculateWeeks, isAllowedDate, bindEvent;
-
-            $scope.options = $scope.options || {};
-            $scope.selectedDate =  {};
-            $scope.options.dayNamesLength = $scope.options.dayNamesLength || 1;
-
-            //TODO smelly code
-            if($scope.options.minDate) $scope.options.minDate = new Date($scope.options.minDate);
-            if($scope.options.maxDate) $scope.options.maxDate = new Date($scope.options.maxDate);           
+            var alculateWeeks, isAllowedDate, bindEvent;
 
             $scope.onClick = function(date) {
                 if (!date || date.disabled) return;
                 console.log(date)
-                $scope.selectedDate =  date;
-                var eventName = (date.events) ? 'OGGR.Calendar.Events.CLICK':'OGGR.Calendar.Date.CLICK';
+                $scope.selectedDate = date;
+                var eventName = (date.events) ? 'OGGR.Calendar.Events.CLICK' : 'OGGR.Calendar.Date.CLICK';
                 $scope.$emit(eventName, date);
             };
 
@@ -106,9 +98,7 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
                 calculateWeeks();
             };
 
-            $scope.$watch('events', function() {
-                calculateWeeks();
-            }, true);
+
 
             bindEvent = function(date) {
                 if (!date || !$scope.events) {
@@ -123,9 +113,9 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
                 });
             };
 
-            function getCurrentDate(date){
-              if(getCurrentDate.dates[date]) return getCurrentDate.dates[date];
-              return new Date([date.year, date.month + 1, date.day]);
+            function getCurrentDate(date) {
+                if (getCurrentDate.dates[date]) return getCurrentDate.dates[date];
+                return new Date([date.year, date.month + 1, date.day]);
             }
             getCurrentDate.dates = {};
 
@@ -199,8 +189,8 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
                 $scope.weeks = [];
                 var week = null;
                 var daysInCurrentMonth = new Date($scope.selectedDate.year, MONTHS.indexOf($scope.selectedDate.month) + 1, 0).getDate();
-                console.log($scope.selectedDate.month)
-                
+                //console.log($scope.selectedDate.month)
+
                 for (var day = 1; day < daysInCurrentMonth + 1; day += 1) {
                     var dayNumber = new Date($scope.selectedDate.year, MONTHS.indexOf($scope.selectedDate.month), day).getDay();
                     week = week || [null, null, null, null, null, null, null];
@@ -225,36 +215,48 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
                 }
             };
 
-            function getNextPrevDate(month) {
-                if (getNextPrevMonth.periods[month]) return getNextPrevMonth.periods[month];
-                var idx = MONTHS.indexOf(month),
-                    period;
-
+            function getPrevNextDate(date) {
+                //if (getPrevNextDate.periods[date]) return getPrevNextDate.periods[date];
                 period = {
-                    next: (idx === 11) ? MONTHS[0] : MONTHS[idx + 1],
-                    previous: (idx === 0) ? MONTHS[11] : MONTHS[idx - 1],
-                    yearDelta: (idx > 0 && idx < 11) ? 0 : (idx === 0) ? -1 : (idx === 11) ? 1 : 0
+                    previous: getSelectedDate(date.getDate() - 1),
+                    next: getSelectedDate(date.getDate() + 1),
                 }
-                getNextPrevMonth.periods[month] = period;
+                //getPrevNextMonth.periods[date] = period;
                 return period;
             }
-            getNextPrevDate.periods = {};
+            getPrevNextDate.periods = {};
 
-            calculateSelectedDate = function() {
-                if ($scope.options.defaultDate) {
-                    $scope.options._defaultDate = new Date($scope.options.defaultDate);
-                } else {
-                    $scope.options._defaultDate = new Date();
+            function getSelectedDate(date) {
+              console.log(111,date)
+                return {
+                    date: date,
+                    year: date.getFullYear(),
+                    month: date.getMonth(),
+                    day: date.getDate()
                 }
+            }
 
-                $scope.selectedDate.year = $scope.options._defaultDate.getFullYear();
-                $scope.selectedDate.month = MONTHS[$scope.options._defaultDate.getMonth()];
-                $scope.selectedDate.day = $scope.options._defaultDate.getDate();
-                calculateWeeks();
-            };
+            function isDate (date) {
+              return (date.getDate)?true:false;
+            }
 
-            calculateSelectedDate();
+            var config = {};
+            (function initCalendar() {
+                config = angular.copy($scope.options) || {};
 
+                config.defaultDate = isDate(config.defaultDate) || new Date();
+                config.minDate = isDate(config.minDate) || new Date('2015-1-31');
+                config.maxDate = isDate(config.maxDate) || new Date('2020-12-31');
+                config.dayNamesLength = config.dayNamesLength || 1;
+
+                $scope.selectedDate = getSelectedDate(config.defaultDate);
+
+                console.log(12,getPrevNextDate(config.defaultDate))
+
+                $scope.$watch('events', function() {
+                    calculateWeeks();
+                }, true);
+            })();
 
         }]
     }
