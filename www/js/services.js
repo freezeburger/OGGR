@@ -118,10 +118,9 @@
         }
 
         var chats = [];
+        //TODO remove
         chats.push(Room(2))
         chats.push(Room(3))
-
-        console.log(chats)
 
         function Room(contactId) {
             var id = chats.length;
@@ -171,7 +170,6 @@
                 },
 
             });
-            console.log(room)
             return room;
         };
 

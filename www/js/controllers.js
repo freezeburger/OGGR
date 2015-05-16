@@ -153,43 +153,6 @@
             $ionicScrollDelegate.scrollBottom(true);
         }, 0);
 
-        $scope.getActions = function() {
-            console.log(123)
-
-            // Show the action sheet
-            var hideSheet = $ionicActionSheet.show({
-                buttons: [{
-                    id: 1,
-                    text: '<b>Copy</b> message'
-                }, {
-                    id: 2,
-                    text: 'Repeat'
-                }],
-                destructiveText: 'Delete',
-                titleText: 'Select you action',
-                cancelText: 'Cancel',
-                cancel: function() {
-                    console.log(arguments)
-                },
-                buttonClicked: function(index) {
-                    console.log(arguments)
-                    return true;
-                },
-                destructiveButtonClicked: function(index) {
-                    console.log(arguments)
-                    return true;
-                }
-            });
-
-            // For example's sake, hide the sheet after two seconds
-            $timeout(function() {
-                hideSheet();
-            }, 3000);
-
-        };
-
-        console.log(chatRoom)
-
         $scope.add = function() {
             chatRoom.nextMessage = $scope.message;
             $ionicScrollDelegate.scrollBottom(true);
