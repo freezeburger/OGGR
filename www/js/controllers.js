@@ -1,6 +1,6 @@
 (function() {
 
-    var app = angular.module('oggr.controllers', []);
+    var app = angular.module('oggr.controllers', ['oggr.calendar']);
 
     app.controller('StartCtrl', function($scope, $state) {
         console.log('start')
@@ -45,20 +45,89 @@
         };
     });
 
-    app.controller('CalendarCtrl', function($scope, $http) {
+    app.controller('CalendarCtrl', ['$scope', function($scope) {
+        // ... code omitted ...
+        // Dates can be passed as strings or Date objects 
+        function getDateToString(date){
+            var d = date || new Date();
+            d = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-');
+            console.log(d)
+            return d;
 
-        $scope.items = [1, 2, 3];
-        $scope.doRefresh = function() {
-            $scope.items.push(Math.random())
-            $http.get('/new-items')
-                .success(function(newItems) {
-                    //$scope.items = newItems;
-                })
-                .finally(function() {
-                    $scope.$broadcast('scroll.refreshComplete');
-                });
+        }
+        getDateToString()
+        $scope.calendarOptions = {
+            defaultDate: getDateToString(),//"2016-05-16",
+            minDate: new Date([2015, 03, 31]),
+            maxDate: new Date([2020, 12, 31]),
+            dayNamesLength: 1, // How to display weekdays (1 for "M", 2 for "Mo", 3 for "Mon"; 9 will show full day names; default is 1)
+            // eventClick: function(e){
+            //     console.log('event',e);
+            //     console.log($scope);
+            //     $scope.selectedEvents = e.events;
+            // },
+            // dateClick: function(e){console.log('date',e)}
         };
-    });
+
+        $scope.$on('OGGR.Calendar.Events.CLICK', function (evt,date) {
+           $scope.selectedEvents = date.events;
+        })
+        $scope.$on('OGGR.Calendar.Date.CLICK', function (evt,date) {
+           console.log(date)
+           $scope.selectedEvents = date.events;
+        })
+
+        $scope.events = [{
+            id:1,
+            title: 'Go to the pool',
+            date: new Date([2015, 5, 16]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        },{
+            id:2,
+            title: 'Get some Sun',
+            date: new Date([2015, 5, 31]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:true
+        }, {
+            id:3,
+            title: 'Another Event....',
+            date: new Date([2015, 5, 4]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        },{
+            id:5,
+            title: 'Another Event....',
+            date: new Date([2015, 5, 16]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        },{
+            title: 'Another Event....',
+            date: new Date([2015, 5, 16]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        },{
+            id:6,
+            title: 'Another Event....',
+            date: new Date([2015, 5, 16]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        },{
+            id:7,
+            title: 'Another Event....',
+            date: new Date([2015, 5, 16]),
+            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
+            complete:false
+        }]
+        $scope.selectedEvents = angular.copy($scope.events)
+
+        $scope.doRefresh = function() {
+            $scope.events.unshift(angular.copy($scope.events[Math.floor(Math.random()*$scope.events.length)]));
+            $scope.selectedEvents = angular.copy($scope.events);
+            $scope.$broadcast('scroll.refreshComplete');
+
+        };
+    }]);
 
     app.controller('ContactsCtrl', function($scope, Contacts) {
         $scope.contacts = Contacts.all();
@@ -199,152 +268,124 @@
     });
 
     app.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
-        
-        
-        var mapOptions = {
-          center: myLatlng,
-          zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          style:mapStyles
+        function initialize() {
+                var myLatlng = new google.maps.LatLng(43.07493, -89.381388);
+
+
+                var mapOptions = {
+                    center: myLatlng,
+                    zoom: 16,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                    style: mapStyles
+                };
+                var map = new google.maps.Map(document.getElementById("map"),
+                    mapOptions);
+
+                map.setOptions({
+                    styles: mapStyles
+                });
+
+                //Marker + infowindow + angularjs compiled ng-click
+                var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+                var compiled = $compile(contentString)($scope);
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: compiled[0]
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Uluru (Ayers Rock)'
+                });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open(map, marker);
+                });
+
+                $scope.map = map;
+            }
+            //google.maps.event.addDomListener(window, 'load', initialize);
+        initialize();
+
+        $scope.centerOnMe = function() {
+            if (!$scope.map) {
+                return;
+            }
+
+            $scope.loading = $ionicLoading.show({
+                content: 'Getting current location...',
+                showBackdrop: false
+            });
+
+            navigator.geolocation.getCurrentPosition(function(pos) {
+                $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+                $scope.loading.hide();
+            }, function(error) {
+                alert('Unable to get location: ' + error.message);
+            });
         };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
 
-        map.setOptions({styles: mapStyles});
-        
-        //Marker + infowindow + angularjs compiled ng-click
-        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-        var compiled = $compile(contentString)($scope);
+        $scope.clickTest = function() {
+            alert('Example of infowindow with ng-click')
+        };
 
-        var infowindow = new google.maps.InfoWindow({
-          content: compiled[0]
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Uluru (Ayers Rock)'
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.open(map,marker);
-        });
-
-        $scope.map = map;
-      }
-      //google.maps.event.addDomListener(window, 'load', initialize);
-      initialize();
-      
-      $scope.centerOnMe = function() {
-        if(!$scope.map) {
-          return;
-        }
-
-        $scope.loading = $ionicLoading.show({
-          content: 'Getting current location...',
-          showBackdrop: false
-        });
-
-        navigator.geolocation.getCurrentPosition(function(pos) {
-          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-          $scope.loading.hide();
-        }, function(error) {
-          alert('Unable to get location: ' + error.message);
-        });
-      };
-      
-      $scope.clickTest = function() {
-        alert('Example of infowindow with ng-click')
-      };
-      
     });
 
 
 })();
 
-var mapStyles = [
-    {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-            {
-                "visibility": "simplified"
-            }
-        ]
-    },
-    {
-        "featureType": "road.arterial",
-        "stylers": [
-            {
-                "hue": 149
-            },
-            {
-                "saturation": -78
-            },
-            {
-                "lightness": 0
-            }
-        ]
-    },
-    {
-        "featureType": "road.highway",
-        "stylers": [
-            {
-                "hue": -45
-            },
-            {
-                "saturation": -20
-            },
-            {
-                "lightness": 2.8
-            }
-        ]
-    },
-    {
-        "featureType": "poi",
-        "elementType": "label",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "landscape",
-        "stylers": [
-            {
-                "hue": 163
-            },
-            {
-                "saturation": -26
-            },
-            {
-                "lightness": -1.1
-            }
-        ]
-    },
-    {
-        "featureType": "transit",
-        "stylers": [
-            {
-                "visibility": "off"
-            }
-        ]
-    },
-    {
-        "featureType": "water",
-        "stylers": [
-            {
-                "hue": 3
-            },
-            {
-                "saturation": -24.24
-            },
-            {
-                "lightness": -18.57
-            }
-        ]
-    }
-]
+var mapStyles = [{
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [{
+        "visibility": "simplified"
+    }]
+}, {
+    "featureType": "road.arterial",
+    "stylers": [{
+        "hue": 149
+    }, {
+        "saturation": -78
+    }, {
+        "lightness": 0
+    }]
+}, {
+    "featureType": "road.highway",
+    "stylers": [{
+        "hue": -45
+    }, {
+        "saturation": -20
+    }, {
+        "lightness": 2.8
+    }]
+}, {
+    "featureType": "poi",
+    "elementType": "label",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "landscape",
+    "stylers": [{
+        "hue": 163
+    }, {
+        "saturation": -26
+    }, {
+        "lightness": -1.1
+    }]
+}, {
+    "featureType": "transit",
+    "stylers": [{
+        "visibility": "off"
+    }]
+}, {
+    "featureType": "water",
+    "stylers": [{
+        "hue": 3
+    }, {
+        "saturation": -24.24
+    }, {
+        "lightness": -18.57
+    }]
+}]

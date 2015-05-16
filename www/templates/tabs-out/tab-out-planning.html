@@ -1,15 +1,25 @@
 <ion-view view-title="{{UI.labels[UI.lang].nav.planing}}">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div class="padding">
-          There is a new status for <b><a href="#">Mark Miller</a></b>.
+    <ion-content>
+        <oggr-calendar events="events" options="calendarOptions"></oggr-calendar>
+        <div class="list card">
+            <div class="item item-divider item-icon-left"><i class="icon ion-ios-timer-outline"></i>Your Work Plan this Month :</div>
+            <div class="item item-body">
+                <div>
+                    Working days : <span class="badge badge-assertive item-icon-left">12</span>
+                </div>
+                <p>
+                    Working hours :<b><a href="#">136</a></b>
+                    <br> Pay Grade :<b><a href="#">12,5</a></b>
+                </p>
+                <div>
+                    Drinking Money :<b><a href="#">{{136*12.5}} $</a></b>
+                </div>
+            </div>
+            <div class="item item-divider item-icon-right">
+                <a href="#" class="padding">
+                    <i class="icon ion-ios-download-outline"></i>
+                </a>
+            </div>
         </div>
-        <div>
-          Event  <b><a href="#">Concert Boule Noire</a></b> has been rescheduled.
-        </div>
-      </div>
-    </div>
-  </ion-content>
+    </ion-content>
 </ion-view>

@@ -12,7 +12,7 @@
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:search" type="item-text-wrap" href="#/o/tab/contacts/{{::contact.id}}">
                 <img ng-src="{{::contact.face}}">
-                <a bg-href="tel:{{::contact.phone}}"><h2>
+                <a ng-href="tel:{{::contact.phone}}"><h2>
                   {{::contact.name}}
                 </h2>
                 </a>
