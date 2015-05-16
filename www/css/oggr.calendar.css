@@ -8,11 +8,11 @@ oggr-calendar .calendar{
   user-select: none;
   background-color: #fff;
 }
-
+/*Useless to remove */
 oggr-calendar .move-month {
   cursor: pointer;
 }
-
+/*bigger !!!!!!!! */
 oggr-calendar .prev-month {
   float: left;
 }

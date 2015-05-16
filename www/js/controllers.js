@@ -45,69 +45,29 @@
         };
     });
 
-    app.controller('CalendarCtrl', ['$scope', function($scope) {
+    app.controller('CalendarCtrl', ['$scope','CalendarEvents', function($scope,CalendarEvents) {
 
-        function getDateToString(date){
+        //unused
+        function getDateToString(date) {
             var d = date || new Date();
-            d = [d.getFullYear(),d.getMonth()+1,d.getDate()].join('-');
+            d = [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-');
             return d;
-
         }
 
-        $scope.$on('OGGR.Calendar.Events.CLICK', function (evt,date) {
-           $scope.selectedEvents = date.events;
+        $scope.$on('OGGR.Calendar.Events.CLICK', function(evt, date) {
+            $scope.selectedEvents = date.events;
         })
-        $scope.$on('OGGR.Calendar.Date.CLICK', function (evt,date) {
-           console.log(date)
-           $scope.selectedEvents = date.events;
+        $scope.$on('OGGR.Calendar.Date.CLICK', function(evt, date) {
+            console.log(date)
+            $scope.selectedEvents = date.events;
         })
 
-        $scope.events = [{
-            id:1,
-            title: 'Go to the pool',
-            date: new Date([2015, 5, 16]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        },{
-            id:2,
-            title: 'Get some Sun',
-            date: new Date([2015, 5, 31]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:true
-        }, {
-            id:3,
-            title: 'Another Event....',
-            date: new Date([2015, 5, 4]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        },{
-            id:5,
-            title: 'Another Event....',
-            date: new Date([2015, 5, 16]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        },{
-            title: 'Another Event....',
-            date: new Date([2015, 5, 16]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        },{
-            id:6,
-            title: 'Another Event....',
-            date: new Date([2015, 5, 16]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        },{
-            id:7,
-            title: 'Another Event....',
-            date: new Date([2015, 6, 16]),
-            description:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-            complete:false
-        }]
+        $scope.events = CalendarEvents.all();
+        //Keep for pagination
         $scope.selectedEvents = angular.copy($scope.events)
 
         $scope.doRefresh = function() {
-            $scope.events.unshift(angular.copy($scope.events[Math.floor(Math.random()*$scope.events.length)]));
+            $scope.events.unshift(angular.copy($scope.events[Math.floor(Math.random() * $scope.events.length)]));
             $scope.selectedEvents = angular.copy($scope.events);
             $scope.$broadcast('scroll.refreshComplete');
 
@@ -143,7 +103,6 @@
 
         if (!Chats.get($stateParams.chatId)) return $state.go('oggr.tab.chats');
 
-
         var chatRoom = Chats.get($stateParams.chatId);
 
         $scope.messages = chatRoom.messages;
@@ -156,6 +115,10 @@
         $scope.add = function() {
             chatRoom.nextMessage = $scope.message;
             $ionicScrollDelegate.scrollBottom(true);
+        };
+
+        $scope.searchMessage = function() {
+            console.log('search')
         };
 
         $scope.scrollTop = function() {
@@ -172,11 +135,46 @@
             };
             $scope.$broadcast('scroll.refreshComplete');
         };
+
+        $scope.getActions = function() {
+            console.log(123)
+
+            /* Show the action sheet */
+            var hideSheet = $ionicActionSheet.show({
+                buttons: [{
+                    id: 1,
+                    text: '<b>Copy</b> message'
+                }, {
+                    id: 2,
+                    text: 'Repeat'
+                }],
+                destructiveText: 'Delete',
+                titleText: 'Select you action',
+                cancelText: 'Cancel',
+                cancel: function() {
+                    console.log(arguments)
+                },
+                buttonClicked: function(index) {
+                    console.log(arguments)
+                    return true;
+                },
+                destructiveButtonClicked: function(index) {
+                    console.log(arguments)
+                    return true;
+                }
+            });
+
+            $timeout(function() {
+                hideSheet();
+            }, 3000);
+
+        };
     });
 
     app.controller('LanguageCtrl', function($scope, $ionicHistory) {
         $scope.close = function() {
             console.log($ionicHistory.viewHistory());
+            //TODO not working
             $ionicHistory.goBack();
         }
     });
@@ -217,43 +215,42 @@
 
     app.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
         function initialize() {
-                var myLatlng = new google.maps.LatLng(43.07493, -89.381388);
+            var myLatlng = new google.maps.LatLng(43.07493, -89.381388);
 
 
-                var mapOptions = {
-                    center: myLatlng,
-                    zoom: 16,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                    style: mapStyles
-                };
-                var map = new google.maps.Map(document.getElementById("map"),
-                    mapOptions);
+            var mapOptions = {
+                center: myLatlng,
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                style: mapStyles
+            };
+            var map = new google.maps.Map(document.getElementById("map"),
+                mapOptions);
 
-                map.setOptions({
-                    styles: mapStyles
-                });
+            map.setOptions({
+                styles: mapStyles
+            });
 
-                //Marker + infowindow + angularjs compiled ng-click
-                var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-                var compiled = $compile(contentString)($scope);
+            //Marker + infowindow + angularjs compiled ng-click
+            var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+            var compiled = $compile(contentString)($scope);
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: compiled[0]
-                });
+            var infowindow = new google.maps.InfoWindow({
+                content: compiled[0]
+            });
 
-                var marker = new google.maps.Marker({
-                    position: myLatlng,
-                    map: map,
-                    title: 'Uluru (Ayers Rock)'
-                });
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Uluru (Ayers Rock)'
+            });
 
-                google.maps.event.addListener(marker, 'click', function() {
-                    infowindow.open(map, marker);
-                });
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
 
-                $scope.map = map;
-            }
-            //google.maps.event.addDomListener(window, 'load', initialize);
+            $scope.map = map;
+        };
         initialize();
 
         $scope.centerOnMe = function() {

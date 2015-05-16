@@ -13,43 +13,10 @@
         return {
             restrict: 'E',
             replace: true,
-            template: '<a ng-click="getAction()" on-hold="getAction()"><p ng-bind="message.content" ng-if="!isImage()"></p><img zoomable ng-if="isImage()" ng-src="{{message.content}}"></a>',
+            template: '<a ng-click="getAction()"><p ng-bind="message.content" ng-if="!isImage()"></p><img ng-if="isImage()" ng-src="{{message.content}}"></a>',
             link: function(scope, iElement, iAttrs) {
                 scope.isImage = function() {
                     return /data:/.test(scope.message.content) || /http/.test(scope.message.content);
-                };
-                scope.getActions = function() {
-                    console.log(123)
-
-                    /* Show the action sheet */
-                    var hideSheet = $ionicActionSheet.show({
-                        buttons: [{
-                            id: 1,
-                            text: '<b>Copy</b> message'
-                        }, {
-                            id: 2,
-                            text: 'Repeat'
-                        }],
-                        destructiveText: 'Delete',
-                        titleText: 'Select you action',
-                        cancelText: 'Cancel',
-                        cancel: function() {
-                            console.log(arguments)
-                        },
-                        buttonClicked: function(index) {
-                            console.log(arguments)
-                            return true;
-                        },
-                        destructiveButtonClicked: function(index) {
-                            console.log(arguments)
-                            return true;
-                        }
-                    });
-
-                    $timeout(function() {
-                        hideSheet();
-                    }, 3000);
-
                 };
             }
         };
