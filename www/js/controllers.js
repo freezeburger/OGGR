@@ -115,6 +115,7 @@
         $scope.add = function() {
             chatRoom.nextMessage = $scope.message;
             $ionicScrollDelegate.scrollBottom(true);
+            $scope.message='' ;
         };
 
         $scope.searchMessage = function() {
@@ -137,7 +138,7 @@
         };
 
         $scope.getActions = function() {
-            console.log(123)
+            var message = this.message;
 
             /* Show the action sheet */
             var hideSheet = $ionicActionSheet.show({
@@ -152,14 +153,15 @@
                 titleText: 'Select you action',
                 cancelText: 'Cancel',
                 cancel: function() {
-                    console.log(arguments)
-                },
-                buttonClicked: function(index) {
-                    console.log(arguments)
                     return true;
                 },
-                destructiveButtonClicked: function(index) {
-                    console.log(arguments)
+                buttonClicked: function(index,button) {
+                    if(button.id === 1 ) $scope.message =  message.content;
+                    if(button.id === 2 ) chatRoom.nextMessage =  message.content;
+                    return true;
+                },
+                destructiveButtonClicked: function() {
+                    chatRoom.deleteMessage(message);
                     return true;
                 }
             });

@@ -13,7 +13,7 @@
         return {
             restrict: 'E',
             replace: true,
-            template: '<a ng-click="getAction()"><p ng-bind="message.content" ng-if="!isImage()"></p><img ng-if="isImage()" ng-src="{{message.content}}"></a>',
+            template: '<div><p ng-bind="message.content" ng-if="!isImage()"></p><img ng-if="isImage()" ng-src="{{message.content}}"></div>',
             link: function(scope, iElement, iAttrs) {
                 scope.isImage = function() {
                     return /data:/.test(scope.message.content) || /http/.test(scope.message.content);
