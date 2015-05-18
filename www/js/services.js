@@ -1,8 +1,7 @@
 (function() {
 
 
-
-    var app = angular.module('oggr.services', [])
+    var app = angular.module('oggr.services', ['firebase'])
 
     app.service('UI', [function() {
 
@@ -81,7 +80,10 @@
 
     }])
 
-    app.factory('Chats', function(Contacts) {
+    app.factory('Chats', function(Contacts, $firebaseArray) {
+
+        var messagesRef = new Firebase('https://oggr.firebaseio.com/messages');
+        var messagesFBA = $firebaseArray(messagesRef);
 
         var messageOptions = [{
             content: 'Wow, this is really something huh?'
@@ -146,7 +148,8 @@
                 messages: {
                     configurable: false,
                     get: function() {
-                        return this.data;
+                        //return this.data;
+                        return messagesFBA.$loaded()
                     },
                     set: function(msg) {
                         //Keep for initializing
@@ -155,7 +158,8 @@
                 nextMessage: {
                     configurable: false,
                     set: function(msg) {
-                        this.data.push(createMessage(msg));
+                        messagesFBA.$add(createMessage(msg));
+                        //this.data.push(createMessage(msg));
                     }
                 },
                 previousMessage: {
@@ -175,7 +179,7 @@
 
             room.deleteMessage = function(msg) {
                 this.data.splice(this.data.indexOf(msg), 1);
-          
+
             }
             return room;
         };

@@ -6,6 +6,12 @@
 
         $rootScope.UI = UI;
 
+        var nbDigest = 0;
+
+        $rootScope.$watch(function() {
+          console.log('digest',++nbDigest);
+        });
+
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

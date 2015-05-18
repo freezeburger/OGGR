@@ -1,5 +1,5 @@
 <ion-view view-title="{{chatRoomName}}">
-    <ion-content>
+    <ion-content delegate-handle="chat">
         <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
         </ion-refresher>
         <ion-header-bar class="item-input-inset bar-stable">

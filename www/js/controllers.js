@@ -45,7 +45,7 @@
         };
     });
 
-    app.controller('CalendarCtrl', ['$scope','CalendarEvents', function($scope,CalendarEvents) {
+    app.controller('CalendarCtrl', ['$scope', 'CalendarEvents', function($scope, CalendarEvents) {
 
         //unused
         function getDateToString(date) {
@@ -105,17 +105,97 @@
 
         var chatRoom = Chats.get($stateParams.chatId);
 
-        $scope.messages = chatRoom.messages;
+
+        $ionicScrollDelegate.resize();
+
+        chatRoom.messages.then(function(x) {
+                $scope.$watchCollection('messages', function(newNames, oldNames) {
+                    console.log(Math.random())
+                    $timeout(function() {
+                        console.log('->', Math.random())
+                        $ionicScrollDelegate.$getByHandle('chat').scrollBottom(true);
+                    }, 500, false);
+                    // $scope.$$postDigest(function() {
+                    //     console.log("post Digest");
+                    //     $ionicScrollDelegate.scrollBottom(true);
+                    // });
+                });
+                $scope.messages = x; // true
+            })
+            .catch(function(error) {
+                console.log("Error:", error);
+            });
+
+        //         The asyncEval is after the DOM construction but before the browser renders.
+        // I believe that is the time you want to attach the jquery plugins. otherwise
+        // you will have flicker. if you really want to do after the browser render
+        // you can do $defer(fn, 0);
+
+
+        //$timeout([fn], [delay], [invokeApply], [Pass]);
+
+        //         Even though the first $timeout() call was before the $scope.$evalAsync() method, you can see that the $scope.$evalAsync() expression was evaluated first. This is because the $scope.$evalAsync() expressions are placed in an "async queue" that is flushed at the start of each $digest iteration. As a very high level, the $digest loop looks like this:
+
+        // Do:
+        // - - - If asyncQueue.length, flush asyncQueue.
+        // - - - Trigger all $watch handlers.
+        // - - - Check for "too many" $digest iterations.
+        // While: ( Dirty data || asyncQueue.length )
+
+        //http://www.bennadel.com/blog/2605-scope-evalasync-vs-timeout-in-angularjs.htm
+
+
+        //http://blogs.microsoft.co.il/choroshin/2014/04/08/angularjs-postdigest-vs-timeout-when-dom-update-is-needed/
+
+        //  When you need to update the DOM once after dirty checking is over or in other words, fire a callback after the current $digest cycle completes,
+        // you can use $$postDigest or $timeout.
+        // I’ll try to explain the cons and the pros of  $$postDigest and $timeout.
+
+        // $$postDigest 
+
+        // pros:
+
+        //          1. Fires a callback after the current $digest cycle completes.
+
+        //          2. Great for updating the DOM once after dirty checking is over.
+
+        // cons:
+
+        //          1. $$ means private to Angular, the interface is not stable.
+
+
+        //         /runs immediately after $scope.$digest
+        // $scope.$$postDigest(function(){
+        //   console.log("post Digest");
+        //  });
+        // * it should be noted that $$postDigest wont run another digest cycle.
+
+        // $timeout 
+
+        // pros:
+
+        //          1. Runs after the current $digest cycle completes.
+
+        //          2. Great for updating the DOM once after dirty checking is over.
+
+        // cons:
+
+        //          1. a little more complex to use.
+
+        // usage:
+        // to prevent another digest cycle to run by default ,we need to set the third argument to false.
+
+        // //runs immediately after $scope.$digest
+        // $timeout(function(){
+        //  console.log("post Digest with $timeout");
+        // },0,false);
+
         $scope.chatRoomName = Contacts.get(chatRoom.contacts[0]).name
 
-        $timeout(function() {
-            $ionicScrollDelegate.scrollBottom(true);
-        }, 0);
 
         $scope.add = function() {
             chatRoom.nextMessage = $scope.message;
-            $ionicScrollDelegate.scrollBottom(true);
-            $scope.message='' ;
+            $scope.message = '';
         };
 
         $scope.searchMessage = function() {
@@ -155,9 +235,10 @@
                 cancel: function() {
                     return true;
                 },
-                buttonClicked: function(index,button) {
-                    if(button.id === 1 ) $scope.message =  message.content;
-                    if(button.id === 2 ) chatRoom.nextMessage =  message.content;
+                buttonClicked: function(index, button) {
+                    if (button.id === 1) $scope.message = message.content;
+                    if (button.id === 2) chatRoom.nextMessage = message.content;
+                    $ionicScrollDelegate.scrollBottom(true);
                     return true;
                 },
                 destructiveButtonClicked: function() {

@@ -1,8 +1,32 @@
 /* Empty. Add your own CSS if you like */
 
-.splash{
-
+/*ion-content{
+	background: none;
+	background: url(../img/bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center;
 }
+
+.tabs-striped .tabs{
+	background: none;
+}
+.tab-nav.tabs:after{
+	content: '';
+	display: block;
+	background: url(../img/bg.jpg);
+	width:130%;
+	height:110%;
+	position: absolute;
+	left:-10px;
+	top:0px;
+	z-index: -1;
+	-webkit-filter:brightness(2.5) blur(1.5px);
+	filter: brightness(2.5)blur(1.5px);
+}
+.tabs-striped .tab-item.tab-item-active{
+	border-width: 2px 0 0 0;
+}*/
 
 .splash .pane{
 	background: rgba(255,255,255,.3);
