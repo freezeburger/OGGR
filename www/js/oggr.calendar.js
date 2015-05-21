@@ -1,4 +1,10 @@
-angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
+angular.module('oggr.calendar', [])
+       .directive('oggrCalendar', oggrCalendar)
+       .config([function () {
+           console.log('oggrCalendar');
+       }])
+
+function oggrCalendar() {
     return {
         restrict: 'E',
         scope: {
@@ -176,4 +182,4 @@ angular.module('oggr.calendar', []).directive('oggrCalendar', function() {
             })();
         }]
     }
-});
+}

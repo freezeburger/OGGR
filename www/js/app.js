@@ -1,16 +1,10 @@
 (function() {
 
-    var app = angular.module('oggr', ['ionic', 'oggr.controllers', 'oggr.services', 'oggr.directives'])
+    var app = window.app = angular.module('oggr', ['core.config','ionic', 'oggr.calendar','oggr.controllers', 'oggr.services', 'oggr.directives'])
 
     app.run(function($ionicPlatform, $rootScope, UI) {
-
+        console.log('run',app)
         $rootScope.UI = UI;
-
-        var nbDigest = 0;
-
-        $rootScope.$watch(function() {
-          console.log('digest',++nbDigest);
-        });
 
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
@@ -25,7 +19,7 @@
     })
 
     app.config(function($stateProvider, $urlRouterProvider) {
-
+        console.log('config',app)
         openFB.init({
             appId: '855624561176943'
         });

@@ -1,6 +1,27 @@
 (function() {
 
     var app = angular.module('oggr.directives', [])
+    
+    // (function(module){
+    //     console.log(111,module)
+    //     return module;
+    // })(angular.module('oggr.directives', []))
+    .config(['$configProvider',function ($configProvider) {
+                //console.log(angular.injector().invoke($configProvider.$get))
+               
+                console.log(1,'oggr.directive',$configProvider.$get());
+       }])
+    .config(['$configProvider',(function (context) {
+           //console.log('oggr.directive',$configProvider.$get());
+           //console.log(this,context);
+           return function($configProvider){
+                console.log(2,'oggr.directive',$configProvider.$get());
+           }
+       }).call(angular,this)])
+    .run(['$config',function ($config) {
+         console.log($config);
+         console.log(angular.injector().has('$config'))
+    }])
 
     app.directive('oggrZoomable', [function() {
         return {

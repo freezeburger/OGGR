@@ -1,7 +1,42 @@
 (function() {
 
+    angular.module('core.config', [])
+        .provider('$config', [function () {
+            
+            
+            this.$get = get;
+
+
+
+            function get() {
+                console.log('BOUM BOUM')
+                
+                return {
+                    version: 'BOUM 0.1.0'
+                };
+            };
+            //get.$inject = ['$httpProvider']
+        }])
+        // .service('$config', [function() {
+        //     console.log(arguments)
+        //     return {
+        //         version: '0.0.0'
+        //     }
+        // }])
+        .config([function() {
+            console.log('config', 'core.config');
+        }]).config([function() {
+            console.log('run', 'core.config');
+        }])
+
+
 
     var app = angular.module('oggr.services', ['firebase'])
+        .config([function() {
+            console.log('oggr.services');
+        }])
+
+
 
     app.service('UI', [function() {
 
