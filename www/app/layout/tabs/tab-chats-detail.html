@@ -1,0 +1,30 @@
+<ion-view view-title="{{chatRoomName}}">
+    <ion-content delegate-handle="chat">
+        <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
+        </ion-refresher>
+        <ion-header-bar class="item-input-inset bar-stable">
+            <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" ng-model="search">
+            </label>
+            <button class="button button-clear" ng-click="searchMessage()">
+                <i class="icon ion-ios-search"></i>
+            </button>
+        </ion-header-bar>
+        <div class="padding">
+            <ol class="messages">
+                <li ng-repeat="message in messages" on-hold="getActions()" ng-click="getActions()">
+                    <oggr-chat-message ><oggr-chat-message>    
+                </li>
+            </ol>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="item-input-inset padding bar-assertive">
+        <label class="item-input-wrapper">
+            <input type="search" placeholder="" ng-model="message"  ng-focus="scrollDown()">
+        </label>
+        <button class="button button-clear" ng-click="add()">
+            <i class="icon ion-paper-airplane"></i>
+        </button>
+    </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,36 @@
+<ion-view view-title="{{UI.labels[UI.lang].nav.contacts}}">
+    <ion-content>
+        <ion-header-bar class="bar-stable item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="" ng-model="search.name">
+            </label>
+            <button class="button button-clear" ng-click="search=''">
+                <i class="icon ion-close" ng-class="{'ion-ios-close-empty':!search,'ion-ios-close-outline':search}"></i>
+            </button>
+        </ion-header-bar>
+        <ion-list>
+            <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="contact in contacts | filter:search" type="item-text-wrap" href="#/o/tab/contacts/{{::contact.id}}">
+                <img ng-src="{{::contact.face}}">
+                <a ng-href="tel:{{::contact.phone}}"><h2>
+                  {{::contact.name}}
+                </h2>
+                </a>
+                <p>{{::contact.title}}</p>
+                <p>{{::contact.email}}</p>
+                <!--  <div class="button-bar" style="float:right">
+                <a class="button button-clear ion-ios-telephone-outline"></a>
+                <a class="button button-clear ion-ios-chatbubble-outline"></a>
+                <a class="button button-clear ion-chevron-right"></a>
+                </div> -->
+                <i class="icon ion-chevron-right icon-accessory"></i>
+                <ion-option-button class="button-dark" ng-click="remove(contact)">
+                    {{UI.labels[UI.lang].action.edit}}
+                </ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="remove(contact)">
+                    {{UI.labels[UI.lang].action.delete}}
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

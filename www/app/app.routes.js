@@ -1,25 +1,11 @@
 (function() {
 
-    var app = window.app = angular.module('oggr', ['app.config','ionic', 'oggr.calendar','oggr.controllers', 'oggr.services', 'oggr.directives'])
+    angular.module('app.routes', [])
 
-    app.run(function($ionicPlatform, $rootScope, UI) {
-        console.log('run',app)
-        $rootScope.UI = UI;
+    .config( ['$stateProvider','$urlRouterProvider', configFn ] );
 
-        $ionicPlatform.ready(function() {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard for form inputs)
-            if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            }
-            if (window.StatusBar) {
-                // org.apache.cordova.statusbar required
-                StatusBar.styleLightContent();
-            }
-        });
-    })
-
-    app.config(function($stateProvider, $urlRouterProvider) {
-        console.log('config',app)
+    function configFn ($stateProvider, $urlRouterProvider) {
+        console.log('config', 'app.routes')
         openFB.init({
             appId: '855624561176943'
         });
@@ -29,39 +15,39 @@
             .state('start', {
                 url: "/start",
                 abstract: true,
-                templateUrl: "templates/screen-start.html",
+                templateUrl: "app/layout/screen-start.html",
                 controller: 'StartCtrl'
             })
             .state('start.signin', {
                 url: "/signin",
                 abstract: false,
-                templateUrl: "templates/start/start-login.html"
+                templateUrl: "app/layout/start/start-login.html"
             })
             .state('start.forgot', {
                 url: "/forgot",
                 abstract: false,
-                templateUrl: "templates/start/start-forgot.html"
+                templateUrl: "app/layout/start/start-forgot.html"
             })
 
         // setup abstracts states for the nested side-menu/tabs directive    
         .state('oggr', {
             url: "/o",
             abstract: true,
-            templateUrl: "templates/screen-main.html"
+            templateUrl: "app/layout/screen-main.html"
         })
 
 
         .state('oggr.tab', {
                 url: "/tab",
                 abstract: true,
-                templateUrl: "templates/screen-sub-tabs.html"
+                templateUrl: "app/layout/screen-sub-tabs.html"
             })
             // Each tab has its own nav history stack:
             .state('oggr.tab.pulse', {
                 url: '/pulse',
                 views: {
                     'tab-pulse': {
-                        templateUrl: 'templates/tabs/tab-pulse.html',
+                        templateUrl: 'app/layout/tabs/tab-pulse.html',
                         controller: 'PulseCtrl'
                     }
                 }
@@ -71,7 +57,7 @@
             url: '/calendar',
             views: {
                 'tab-calendar': {
-                    templateUrl: 'templates/tabs/tab-calendar.html',
+                    templateUrl: 'app/layout/tabs/tab-calendar.html',
                     controller: 'CalendarCtrl'
                 }
             }
@@ -81,7 +67,7 @@
             url: '/dashboard',
             views: {
                 'tab-dashboard': {
-                    templateUrl: 'templates/tabs/tab-dashboard.html',
+                    templateUrl: 'app/layout/tabs/tab-dashboard.html',
                     controller: 'DashCtrl'
                 }
             }
@@ -91,7 +77,7 @@
                 url: '/contacts',
                 views: {
                     'tab-contacts': {
-                        templateUrl: 'templates/tabs/tab-contacts.html',
+                        templateUrl: 'app/layout/tabs/tab-contacts.html',
                         controller: 'ContactsCtrl'
                     }
                 }
@@ -100,7 +86,7 @@
                 url: '/contacts/:contactId',
                 views: {
                     'tab-contacts': {
-                        templateUrl: 'templates/tabs/tab-contacts-detail.html',
+                        templateUrl: 'app/layout/tabs/tab-contacts-detail.html',
                         controller: 'ContactsDetailCtrl'
                     }
                 }
@@ -110,7 +96,7 @@
                 url: '/chats',
                 views: {
                     'tab-chats': {
-                        templateUrl: 'templates/tabs/tab-chats.html',
+                        templateUrl: 'app/layout/tabs/tab-chats.html',
                         controller: 'ChatsCtrl'
                     }
                 }
@@ -119,7 +105,7 @@
                 url: '/chats/:chatId',
                 views: {
                     'tab-chats': {
-                        templateUrl: 'templates/tabs/tab-chats-detail.html',
+                        templateUrl: 'app/layout/tabs/tab-chats-detail.html',
                         controller: 'ChatsDetailCtrl'
                     }
                 }
@@ -129,7 +115,7 @@
                 url: '/map',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/tabs-out/tab-out-map.html',
+                        templateUrl: 'app/layout/tabs-out/tab-out-map.html',
                         controller: 'MapCtrl'
                     }
                 }
@@ -138,7 +124,7 @@
                 url: '/reminder',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/tabs-out/tab-out-reminder.html',
+                        templateUrl: 'app/layout/tabs-out/tab-out-reminder.html',
                     }
                 }
             })
@@ -146,14 +132,14 @@
                 url: '/planning',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/tabs-out/tab-out-planning.html',
+                        templateUrl: 'app/layout/tabs-out/tab-out-planning.html',
                     }
                 }
             }).state('oggr.tab.crew', {
                 url: '/crew',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/tabs-out/tab-out-crew.html',
+                        templateUrl: 'app/layout/tabs-out/tab-out-crew.html',
                     }
                 }
             })
@@ -163,7 +149,7 @@
             url: '/files',
             views: {
                 'out-of-tabs': {
-                    templateUrl: 'templates/tabs-out/tab-out-files.html',
+                    templateUrl: 'app/layout/tabs-out/tab-out-files.html',
                 }
             }
         })
@@ -172,7 +158,7 @@
             url: '/taskManager',
             views: {
                 'out-of-tabs': {
-                    templateUrl: 'templates/tabs-out/tab-out-tasks.html',
+                    templateUrl: 'app/layout/tabs-out/tab-out-tasks.html',
                 }
             }
         })
@@ -186,7 +172,7 @@
                 url: '/language',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/settings/settings-language.html',
+                        templateUrl: 'app/layout/settings/settings-language.html',
                         controller: 'LanguageCtrl'
                     }
                 }
@@ -195,12 +181,12 @@
                 url: '/profile',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'templates/settings/settings-profile.html',
+                        templateUrl: 'app/layout/settings/settings-profile.html',
                         controller: 'ProfileCtrl'
                     }
                 }
             })
 
-    });
+    }
 
 })();

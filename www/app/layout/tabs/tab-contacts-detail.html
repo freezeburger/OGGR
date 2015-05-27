@@ -1,0 +1,28 @@
+<ion-view view-title="{{contact.name}}">
+    <ion-content class="padding">
+        <div class="list">
+            </ion-item>
+            	<img ng-src="{{contact.face}}" style="width: 64px; height: 64px; float:left;">
+            	<h2>
+                  {{::contact.name}}
+                </h2>
+            </ion-item>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Title</span>
+                <input type="text" placeholder="Title" ng-model="contact.title">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">First Name</span>
+                <input type="text" placeholder="First Name" ng-model="contact.name">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Phone</span>
+                <input type="text" placeholder="Last Name" ng-model="contact.phone">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="Email" ng-model="contact.email">
+            </label>
+        </div>
+    </ion-content>
+</ion-view>
