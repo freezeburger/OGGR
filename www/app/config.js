@@ -1,10 +1,8 @@
 (function() {
 
-
     angular.module('app.config', [])
 
     	.constant('config', configFacotry())
-
 
 	    .config([function() {console.log('config', 'appConfig');}])
 

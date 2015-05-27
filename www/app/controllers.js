@@ -47,34 +47,7 @@
         };
     });
 
-    app.controller('CalendarCtrl', ['$scope', 'CalendarEvents', function($scope, CalendarEvents) {
-
-        //unused
-        function getDateToString(date) {
-            var d = date || new Date();
-            d = [d.getFullYear(), d.getMonth() + 1, d.getDate()].join('-');
-            return d;
-        }
-
-        $scope.$on('OGGR.Calendar.Events.CLICK', function(evt, date) {
-            $scope.selectedEvents = date.events;
-        })
-        $scope.$on('OGGR.Calendar.Date.CLICK', function(evt, date) {
-            console.log(date)
-            $scope.selectedEvents = date.events;
-        })
-
-        $scope.events = CalendarEvents.all();
-        //Keep for pagination
-        $scope.selectedEvents = angular.copy($scope.events)
-
-        $scope.doRefresh = function() {
-            $scope.events.unshift(angular.copy($scope.events[Math.floor(Math.random() * $scope.events.length)]));
-            $scope.selectedEvents = angular.copy($scope.events);
-            $scope.$broadcast('scroll.refreshComplete');
-
-        };
-    }]);
+    
 
     app.controller('ContactsCtrl', function($scope, Contacts) {
         $scope.contacts = Contacts.all();
@@ -349,4 +322,4 @@ var mapStyles = [{
     }, {
         "lightness": -18.57
     }]
-}]
+}];

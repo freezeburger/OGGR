@@ -1,7 +1,7 @@
 (function() {
 
 
-    var app = angular.module('oggr.services',[])// ['firebase'])
+    var app = angular.module('app.services',['firebase'])// ['firebase'])
         .config([function() {
             console.log('oggr.services');
         }])
