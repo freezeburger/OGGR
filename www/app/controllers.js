@@ -1,11 +1,8 @@
 (function() {
 
-    var app = angular.module('app.controllers', [])
-    .config([function() {
-            console.log('app.controllers');
-        }])
+    angular.module('app.controllers', ['ionic'])
 
-    app.controller('StartCtrl', function($scope, $state) {
+    .controller('StartCtrl', function($scope, $state) {
         console.log('start')
         $scope.signIn = function(user) {
             $state.go('oggr.tab.dashboard');
@@ -24,17 +21,17 @@
                     scope: 'email,publish_actions,user_friends'
                 });
         };
-    });
+    })
 
-    app.controller('PulseCtrl', function($scope) {
+    .controller('PulseCtrl', function($scope) {
 
         $scope.doRefresh = function() {
             $scope.$broadcast('scroll.refreshComplete');
 
         };
-    });
+    })
 
-    app.controller('DashCtrl', function($scope, $http) {
+    .controller('DashCtrl', function($scope, $http) {
         $scope.doRefresh = function() {
             $scope.items.push(Math.random())
             $http.get('/new-items')
@@ -45,22 +42,22 @@
                     $scope.$broadcast('scroll.refreshComplete');
                 });
         };
-    });
+    })
 
     
 
-    app.controller('ContactsCtrl', function($scope, Contacts) {
+    .controller('ContactsCtrl', function($scope, Contacts) {
         $scope.contacts = Contacts.all();
         $scope.remove = function(contact) {
             Contacts.remove(contact);
         }
-    });
+    })
 
-    app.controller('ContactsDetailCtrl', function($scope, $stateParams, Contacts) {
+    .controller('ContactsDetailCtrl', function($scope, $stateParams, Contacts) {
         $scope.contact = Contacts.get($stateParams.contactId);
-    });
+    })
 
-    app.controller('ChatsCtrl', function($scope, Chats, Contacts) {
+    .controller('ChatsCtrl', function($scope, Chats, Contacts) {
         $scope.chats = Chats.all();
 
         //Move into Room object
@@ -72,9 +69,9 @@
             Chats.remove(chat);
         }
 
-    });
+    })
 
-    app.controller('ChatsDetailCtrl', function($scope, $stateParams, Chats, $ionicScrollDelegate, $ionicActionSheet, $timeout, Contacts, $state) {
+    .controller('ChatsDetailCtrl', function($scope, $stateParams, Chats, $ionicScrollDelegate, $ionicActionSheet, $timeout, Contacts, $state) {
 
         if (!Chats.get($stateParams.chatId)) return $state.go('oggr.tab.chats');
 
@@ -158,17 +155,17 @@
             }, 3000);
 
         };
-    });
+    })
 
-    app.controller('LanguageCtrl', function($scope, $ionicHistory) {
+    .controller('LanguageCtrl', function($scope, $ionicHistory) {
         $scope.close = function() {
             console.log($ionicHistory.viewHistory());
             //TODO not working
             $ionicHistory.goBack();
         }
-    });
+    })
 
-    app.controller('ProfileCtrl', function($scope, $stateParams, Contacts) {
+    .controller('ProfileCtrl', function($scope, $stateParams, Contacts) {
         $scope.profile = {}
 
         function getList(user) {
@@ -200,9 +197,9 @@
                 alert('Facebook error: ' + error.error_description);
             }
         });
-    });
+    })
 
-    app.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+    .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
         function initialize() {
             var myLatlng = new google.maps.LatLng(43.07493, -89.381388);
 

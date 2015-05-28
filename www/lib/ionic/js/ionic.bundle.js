@@ -46813,6 +46813,10 @@ IonicModule.config(['$provide', function($provide) {
   }]);
 }]);
 
+IonicModule.config([function () {
+  console.log('config','ionic');
+}]);
+
 /**
  * @private
  */

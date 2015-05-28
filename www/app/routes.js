@@ -2,14 +2,13 @@
 
     angular.module('app.routes', [])
 
-    .config( ['$stateProvider','$urlRouterProvider', configFn ] );
+    .config(['$stateProvider', '$urlRouterProvider', configFn]);
 
-    function configFn ($stateProvider, $urlRouterProvider) {
-        console.log('config', 'app.routes')
-        
-        openFB.init({
-            appId: '855624561176943'
-        });
+    function configFn($stateProvider, $urlRouterProvider) {
+
+        // openFB.init({
+        //     appId: '855624561176943'
+        // });
 
         $stateProvider
 
@@ -159,7 +158,6 @@
 
         //Configuration States
         $stateProvider
-
             .state('oggr.tab.language', {
                 url: '/language',
                 views: {
@@ -177,7 +175,7 @@
                         controller: 'ProfileCtrl'
                     }
                 }
-            })
+            });
 
     }
 

@@ -1,26 +1,21 @@
 (function(){
-
-	var BASE_PATH = 'app/screens'
 	
 	angular.module('app.calendar', ['calendar.controllers','calendar.services','calendar.directives'])
 
-	.config( ['$stateProvider','$urlRouterProvider', configureRoute ] );
+	.config( ['CONFIG','$stateProvider','$urlRouterProvider', configureRoute ] );
 
-    function configureRoute ($stateProvider, $urlRouterProvider) {
+    function configureRoute (CONFIG,$stateProvider, $urlRouterProvider) {
 
         $stateProvider.state('oggr.tab.calendar', {
             url: '/calendar',
             views: {
                 'tab-calendar': {
-                    templateUrl: BASE_PATH + '/calendar/calendar.html',
+                    templateUrl: CONFIG.paths.screens + '/calendar/calendar.html',
                     controller: 'CalendarCtrl'
                 }
             }
         })
 
     }
-
-
-
 
 })();
