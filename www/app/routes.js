@@ -7,7 +7,7 @@
     function configFn($stateProvider, $urlRouterProvider) {
 
         // openFB.init({
-        //     appId: '855624561176943'
+        //     appId: '855624561176943' 
         // });
 
         $stateProvider

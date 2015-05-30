@@ -1,9 +1,8 @@
 (function() {
 
-    angular.module('app.controllers', ['ionic'])
+    angular.module('app.controllers', [])
 
     .controller('StartCtrl', function($scope, $state) {
-        console.log('start')
         $scope.signIn = function(user) {
             $state.go('oggr.tab.dashboard');
         };

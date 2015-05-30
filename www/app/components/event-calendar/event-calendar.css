@@ -1,50 +1,50 @@
-oggr-calendar * {
+event-calendar * {
   user-select: none;
 }
 
-oggr-calendar .calendar{
+event-calendar .calendar{
   padding: 0;
   border: 1px solid #dddddd;
   user-select: none;
   background-color: #fff;
 }
 /*Useless to remove */
-oggr-calendar .move-month {
+event-calendar .move-month {
   cursor: pointer;
 }
 /*bigger !!!!!!!! */
-oggr-calendar .prev-month {
+event-calendar .prev-month {
   float: left;
 }
 
-oggr-calendar .next-month {
+event-calendar .next-month {
   float: right;
 }
 
-oggr-calendar .current-month {
+event-calendar .current-month {
   width: 100%;
   text-align: center;
   padding: 20px 8px 10px 8px;
 }
 
-oggr-calendar .week {
+event-calendar .week {
   height: 30px;
 }
 
-oggr-calendar .weekday {
+event-calendar .weekday {
   text-align: center;
 }
 
-oggr-calendar .week .day:last-child {
+event-calendar .week .day:last-child {
   border-right: none;
 }
 
-oggr-calendar .weekday, .day {
+event-calendar .weekday, .day {
   display: inline-block;
   width: calc(100% / 7);
 }
 
-oggr-calendar .day {
+event-calendar .day {
   height: 30px;
   padding: 2px;
   border: 1px solid #dddddd;
@@ -53,25 +53,25 @@ oggr-calendar .day {
   overflow: hidden;
 }
 
-oggr-calendar .day:hover {
+event-calendar .day:hover {
   cursor: pointer;
 }
 
-oggr-calendar .day.default {
+event-calendar .day.default {
   background-color: lightblue;
 }
 
-oggr-calendar .day.event {
+event-calendar .day.event {
   background-color: #F2C0F7;
 }
-oggr-calendar .day.event .badge {
+event-calendar .day.event .badge {
   padding:2px 5px;
   margin: 2px;
   font-size: 10px;
   line-height: 13px;
 }
 
-oggr-calendar .day.disabled {
+event-calendar .day.disabled {
   cursor: default;
   color: silver;
   background-color: white;

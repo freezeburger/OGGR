@@ -1,5 +1,5 @@
 {
   "name": "OGGR",
   "app_id": "",
-  "gulpStartupTasks": ["watchjs","bundle"]
+  "gulpStartupTasks": ["watchjs"]
 }

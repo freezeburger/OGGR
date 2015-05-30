@@ -1,9 +1,8 @@
 (function() {
 
-    angular.module('app', ['ionic', 'app.core', 'app.controllers', 'app.routes', 'app.calendar'])
+    angular.module('app', ['app.core', 'ionic',  'app.controllers', 'app.routes', 'app.calendar'])
 
     .run(function(CONFIG, $ionicPlatform, $rootScope, UI) {
-        console.log('run', 'app', CONFIG)
         $rootScope.UI = UI;
 
         $ionicPlatform.ready(function() {

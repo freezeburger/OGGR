@@ -10,11 +10,14 @@ var sh = require('shelljs');
 var uglify = require('gulp-uglify');
 var del = require('del');
 var debug = require('gulp-debug');
+var gulpIgnore = require('gulp-ignore');
 
 var paths = {
     sass: ['./scss/**/*.scss'],
     js: ['./www/app/*.js', './www/app/**/*.js']
 };
+
+var ignored = '*.specs.js';
 
 gulp.task('default', ['sass']);
 
@@ -36,7 +39,7 @@ gulp.task('sass', function(done) {
 
 gulp.task('watch', function() {
     gulp.watch(paths.sass, ['sass']);
-    gulp.watch(paths.js, ['bundle']);
+    //gulp.watch(paths.js, ['bundle']);
 });
 
 gulp.task('watchjs', function() {
@@ -47,6 +50,7 @@ gulp.task('bundle', function() {
     del('./www/lib/app.js');
 
     return gulp.src(paths.js)
+        .pipe(gulpIgnore.exclude(ignored))
         .pipe(debug())
         .pipe(sourcemaps.init())
         .pipe(concat('app.bundle.js'))

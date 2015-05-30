@@ -1,53 +1,12 @@
 (function() {
 
-    angular.module('calendar.directives', [])
-    .directive('oggrCalendar', oggrCalendar)
+    angular.module('event-calendar.controller',[])
 
+    .controller('EventCalendarController', ['$scope', EventCalendarController])
+    
+    EventCalendarController.$inject = ['$scope'];
 
-    var stringTemplate = '<div class="calendar">' +
-        '<div class="current-month">' +
-        '<div class="move-month prev-month" ng-click="prevMonth()">' +
-        '<span ng-show="isAllowedPrevMonth()"><i class="ion-chevron-left"></i></span>' +
-        '</div>' +
-        '<b style="font-size: 16px;"><a>' +
-        '<span>{{ calendarTitle }}</span>' +
-        '</a></b>' +
-        '<div class="move-month next-month" ng-click="nextMonth()">' +
-        '<span ng-show="isAllowedNextMonth()"><i class="ion-chevron-right"></i></span>' +
-        '</div>' +
-        '</div>' +
-        '<div>' +
-        '<div ng-repeat="day in ::weekDayNames track by $index" class="weekday">{{ ::day }}</div>' +
-        '</div>' +
-        '<div>' +
-        '<div ng-repeat="week in weeks track by $index" class="week">' +
-        '<div class="day"' +
-        'ng-class="{default: (date.title === selectedDate.title), event: date.events.length, disabled: date.disabled || !date}"' +
-        'ng-repeat="date in week  track by $index"' +
-        'ng-click="onClick()">' +
-        '<div class="day-number">{{ date.day }}' +
-        '<span class="badge badge-assertive" ng-if="date.events.length">{{ date.events.length }}</span></div>' +
-        '</div>' +
-        ' </div>' +
-        '</div>' +
-        '</div>' +
-        '</div>';
-
-
-    function oggrCalendar() {
-        return {
-            restrict: 'E',
-            scope: {
-                options: '=',
-                events: '='
-            },
-            template: stringTemplate,
-            controller: oggrCalendarController
-        }
-    }
-    oggrCalendarController.$inject = ['$scope'];
-
-    function oggrCalendarController($scope) {
+    function EventCalendarController($scope) {
         /* init function at the end */
         var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             WEEKDAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],

@@ -1,6 +1,12 @@
 (function(){
+
+    var moduleDependencies = [
+        'calendar.controllers',
+        'calendar.services',
+        'event-calendar'//component
+    ];
 	
-	angular.module('app.calendar', ['calendar.controllers','calendar.services','calendar.directives'])
+	angular.module('app.calendar', moduleDependencies )
 
 	.config( ['CONFIG','$stateProvider','$urlRouterProvider', configureRoute ] );
 

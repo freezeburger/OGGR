@@ -37,47 +37,10 @@
     }
 
     // Some fake testing data
-    var fakeData = [{
-        id: 1,
-        title: 'Go to the pool',
-        date: new Date([2015, 5, 16]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }, {
-        id: 2,
-        title: 'Get some Sun',
-        date: new Date([2015, 5, 31]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: true
-    }, {
-        id: 3,
-        title: 'Another Event....',
-        date: new Date([2015, 5, 4]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }, {
-        id: 5,
-        title: 'Another Event....',
-        date: new Date([2015, 5, 16]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }, {
-        title: 'Another Event....',
-        date: new Date([2015, 5, 16]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }, {
-        id: 6,
-        title: 'Another Event....',
-        date: new Date([2015, 5, 16]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }, {
-        id: 7,
-        title: 'Another Event....',
-        date: new Date([2015, 6, 16]),
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam sequi, inventore voluptatem minus dolore accusamus.',
-        complete: false
-    }];
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://192.168.1.105:5000/app/core/data/calendar-events.json', false);
+    xhr.send();
+
+    var fakeData = JSON.parse(xhr.responseText);
 
 })();

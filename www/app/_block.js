@@ -14,8 +14,7 @@
     angular.module = buildProcess;
 
     function buildProcess(name, requires, configFn) {
-
-
+        
         var module = ngModuleFn.call(angular, name, requires, configFn);
         var num = buildProcess.modules[name]=++buildProcess.count;
         (function() {
@@ -26,13 +25,10 @@
                     console.log('%c'+ num +'->' + step + ' ' + name, 'background-color:'+color+';color:white;')
                 });
             });
-
         })();
-
 
         return module;
     };
-    buildProcess.modules ={}
+    buildProcess.modules ={};
     buildProcess.count = 0;
-
 })();

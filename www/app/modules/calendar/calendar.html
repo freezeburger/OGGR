@@ -2,7 +2,7 @@
     <ion-content>
         <ion-refresher pulling-text="{{UI.labels[UI.lang].action.refresh}}" on-refresh="doRefresh()">
         </ion-refresher>
-        <oggr-calendar events="events" options="calendarOptions"></oggr-calendar>
+        <event-calendar events="events" options="calendarOptions"></event-calendar>
         <ion-list>
             <ion-item class="item-remove-animate item-icon-right" 
             ng-repeat="event in selectedEvents" 

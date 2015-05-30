@@ -1,0 +1,17 @@
+<div class="calendar">
+    <div class="current-month">
+        <div class="move-month prev-month" ng-click="prevMonth()"><span ng-show="isAllowedPrevMonth()"><i class="ion-chevron-left"></i></span></div><b style="font-size: 16px;"><a><span>{{ calendarTitle }}</span></a></b>
+        <div class="move-month next-month" ng-click="nextMonth()"><span ng-show="isAllowedNextMonth()"><i class="ion-chevron-right"></i></span></div>
+    </div>
+    <div>
+        <div ng-repeat="day in ::weekDayNames track by $index" class="weekday">{{ ::day }}</div>
+    </div>
+    <div>
+        <div ng-repeat="week in weeks track by $index" class="week">
+            <div class="day" ng-class="{default: (date.title === selectedDate.title), event: date.events.length, disabled: date.disabled || !date}" ng-repeat="date in week  track by $index" ng-click="onClick()">
+                <div class="day-number">{{ date.day }}<span class="badge badge-assertive" ng-if="date.events.length">{{ date.events.length }}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -13,74 +13,24 @@
     };
 
     var languages = [{
-            name: 'Français',
-            code: 'fr'
-        }, {
-            name: 'English',
-            code: 'en'
-        }, {
-            name: 'Spanish',
-            code: 'es'
-        }];
+        name: 'Français',
+        code: 'fr'
+    }, {
+        name: 'English',
+        code: 'en'
+    }, {
+        name: 'Spanish',
+        code: 'es'
+    }];
 
-    var labels = {
-        en: {
-            nav: {
-                pulse: 'Pulse',
-                dashboard: 'Dashboard',
-                calendar: 'Calendar',
-                contacts: 'Contacts',
-                chat: 'Chat',
-                language: 'Choose Language',
-                profile: 'Your Profile',
-                settings: 'Settings',
-                login: 'Welcome to OGGR',
-                forgot: 'Forgot Password',
-                venue: 'Venue',
-                crew: 'Crew',
-                signOff: 'Sign-Off',
-                taskManager: 'Task Manager',
-                planning: 'Personnal Planning',
-                files: 'Files',
-                reminder: 'Reminder',
-                map: 'Map'
-            },
-            action: {
-                delete: 'Delete',
-                share: 'Share',
-                call: 'Call',
-                create: 'Create',
-                edit: 'Edit',
-                forgot: 'Retrieve Password',
-                signIn: 'Sign-In',
-                refresh: 'Pull to refresh...',
-                facebook: 'Login with Facebook',
-                fileUpload: 'Add a new file.',
-            },
-            forms: {
-                userName: 'Username',
-                password: 'Password'
-            }
-        },
-        fr: {
-            nav: {
-                pulse: 'Pulse',
-                dashboard: 'Dashboard',
-                calendar: 'Calendrier',
-                contacts: 'Contacts',
-                chat: 'Chat',
-                language: 'Langage',
-                profile: 'Profil',
-                settings: 'Paramètres'
-            },
-            action: {
-                delete: 'Supprimer',
-                share: 'Partager',
-                call: 'Appeler',
-                create: 'Créer',
-                edit: 'Editer',
-            }
-        }
-    };
+    //TODO of course remove;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'http://192.168.1.105:5000/app/core/data/ui.labels.json', false);
+    //xhr.open('GET', 'app/core/data/ui.labels.json', false);
+    xhr.send();
+
+    var labels = JSON.parse(xhr.responseText);
+
+    //var labels = {};
 
 })();
