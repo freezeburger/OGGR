@@ -9,7 +9,8 @@
             version: '0.1.0',
             paths: {
                 screens: 'app/modules'
-            }
+            },
+            server : "http://192.168.1.107:5000/"
         };
     }
 

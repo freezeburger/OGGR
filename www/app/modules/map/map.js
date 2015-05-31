@@ -1,8 +1,10 @@
-(function(){
+(function() {
 
-    var moduleDependencies = [];
-	
-	angular.module('app.map', moduleDependencies )
+    var moduleDependencies = ['map.services','map.controllers','map.routes'];
+    
+    angular.module('app.map', moduleDependencies)
+
+    
 
 
 })();

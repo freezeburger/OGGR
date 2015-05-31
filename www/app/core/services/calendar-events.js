@@ -4,9 +4,16 @@
 
     angular.module('calendar-events', moduleDependencies)
 
-    .factory('CalendarEvents', [factory]);
+    .factory('CalendarEvents', ['CONFIG', factory]);
 
-    function factory() {
+    function factory(CONFIG) {
+
+        // Some fake testing data
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', CONFIG.server + 'app/core/data/calendar-events.json', false);
+        xhr.send();
+
+        var fakeData = JSON.parse(xhr.responseText);
 
         var events = fakeData;
 
@@ -15,7 +22,7 @@
             remove: remove,
             get: get
         };
-        
+
         return CalendarEvents;
 
         function all() {
@@ -34,13 +41,6 @@
             }
             return null;
         };
-    }
-
-    // Some fake testing data
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'http://192.168.1.105:5000/app/core/data/calendar-events.json', false);
-    xhr.send();
-
-    var fakeData = JSON.parse(xhr.responseText);
+    };
 
 })();

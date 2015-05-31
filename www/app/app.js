@@ -1,6 +1,24 @@
 (function() {
 
-    angular.module('app', ['app.core', 'ionic',  'app.controllers', 'app.routes', 'app.calendar'])
+    angular.module('app', [
+        'app.core',
+        'ionic', 
+        'app.controllers',
+        'app.routes',
+        'app.calendar',
+        'app.chat',
+        'app.contacts',
+        'app.crew',
+        'app.dashboard',
+        'app.files',
+        'app.login',
+        'app.map',
+        'app.planning',
+        'app.pulse',
+        'app.reminder',
+        'app.settings',
+        'app.tasks'
+        ])
 
     .run(function(CONFIG, $ionicPlatform, $rootScope, UI) {
         $rootScope.UI = UI;
@@ -15,6 +33,6 @@
                 StatusBar.styleLightContent();
             }
         });
-    })
+    });
 
 })();

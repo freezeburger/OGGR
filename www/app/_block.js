@@ -7,7 +7,7 @@
             color += letters[Math.floor(Math.random() * 16)];
         }
         return color;
-    }
+    };
 
     var ngModuleFn = angular.module;
 
@@ -20,9 +20,11 @@
         (function() {
             var color = getRandomColor();
             console.log('%c'+ num +' creating ' + name, 'color:'+color+';');
+            if(name === 'app') console.time('BUILD');
             ['config', 'run'].forEach(function(step, index) {
                 module[step](function() {
                     console.log('%c'+ num +'->' + step + ' ' + name, 'background-color:'+color+';color:white;')
+                    if(name === 'app' && step === 'run') console.timeEnd('BUILD');
                 });
             });
         })();

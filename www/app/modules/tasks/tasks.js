@@ -2,7 +2,7 @@
 
     var moduleDependencies = ['settings.services','settings.controllers','settings.routes'];
 	
-	angular.module('app.settings', moduleDependencies )
+	angular.module('app.tasks', moduleDependencies )
 
 
 })();

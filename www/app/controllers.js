@@ -45,16 +45,7 @@
 
     
 
-    .controller('ContactsCtrl', function($scope, Contacts) {
-        $scope.contacts = Contacts.all();
-        $scope.remove = function(contact) {
-            Contacts.remove(contact);
-        }
-    })
-
-    .controller('ContactsDetailCtrl', function($scope, $stateParams, Contacts) {
-        $scope.contact = Contacts.get($stateParams.contactId);
-    })
+    
 
     .controller('ChatsCtrl', function($scope, Chats, Contacts) {
         $scope.chats = Chats.all();
@@ -79,15 +70,13 @@
 
         $ionicScrollDelegate.resize();
 
-        chatRoom.messages.then(function(x) {
+        chatRoom.messages.then(function(roomMessages) {
                 $scope.$watchCollection('messages', function(newNames, oldNames) {
-                    console.log(Math.random())
-                    $timeout(function() {
-                        console.log('->', Math.random())
+                    $timeout(function() {  
                         $ionicScrollDelegate.$getByHandle('chat').scrollBottom(true);
                     }, 500, false);
                 });
-                $scope.messages = x; // true
+                $scope.messages = roomMessages; // true
             })
             .catch(function(error) {
                 console.log("Error:", error);

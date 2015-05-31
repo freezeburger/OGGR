@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+module.exports = gulp;
+
 var gutil = require('gulp-util');
 var bower = require('bower');
 var concat = require('gulp-concat');
@@ -11,6 +13,8 @@ var uglify = require('gulp-uglify');
 var del = require('del');
 var debug = require('gulp-debug');
 var gulpIgnore = require('gulp-ignore');
+var size = require('gulp-filesize');
+var ngAnnotate = require('gulp-ng-annotate');
 
 var paths = {
     sass: ['./scss/**/*.scss'],
@@ -55,9 +59,11 @@ gulp.task('bundle', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('app.bundle.js'))
         //.pipe(uglify())
+        .pipe(ngAnnotate())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./www/lib'))
         //.on('end', function(){ gutil.log('Done!'); sh.exec('r');});
+        .pipe(size())
         .on('end', function() {
             gutil.log('Done!');
         });

@@ -1,25 +1,22 @@
 (function() {
 
     var moduleDependencies = [];
-    angular.module('map.routes', moduleDependencies)
+    angular.module('tasks.routes', moduleDependencies)
 
     .config(['$stateProvider', '$urlRouterProvider', configFn]);
 
     function configFn($stateProvider, $urlRouterProvider) {
+
         $stateProvider
-            .state('oggr.tab.map', {
-                url: '/map',
+            .state('oggr.tab.taskManager', {
+                url: '/taskManager',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'app/layout/tabs-out/tab-out-map.html',
-                        controller: 'MapCtrl'
+                        templateUrl: 'app/layout/tabs-out/tab-out-tasks.html',
                     }
                 }
             })
-
     }
-
-
 
 
 })();
