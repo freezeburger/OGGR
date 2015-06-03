@@ -14,6 +14,7 @@ var del = require('del');
 var debug = require('gulp-debug');
 var gulpIgnore = require('gulp-ignore');
 var size = require('gulp-filesize');
+var template = require('gulp-template');
 var ngAnnotate = require('gulp-ng-annotate');
 
 var paths = {
@@ -41,9 +42,42 @@ gulp.task('sass', function(done) {
         .on('end', done);
 });
 
+var CONFIG = {
+    modules: {
+        path: 'www/app/modules/',
+        templates: 'templates/module/*',
+        baseName: '/module.js'
+    }
+};
+
+//gulp mmodule -n MODULE_NAME
+gulp.task('module', ['prepareModule'], function() {
+
+    var module_name = process.argv.slice(4)[0];
+    return gulp.src(CONFIG.modules.path + module_name + CONFIG.modules.baseName)
+        .pipe(rename({
+            basename: module_name
+        }))
+        .pipe(gulp.dest(CONFIG.modules.path + module_name))
+        .on('end', function() {
+            del(CONFIG.modules.path + module_name + CONFIG.modules.baseName)
+        });
+        
+});
+
+gulp.task('prepareModule', function() {
+
+    var module_name = process.argv.slice(4)[0];
+    return gulp.src(CONFIG.modules.templates)
+        .pipe(template({
+            module_name: module_name
+        }))
+        .pipe(gulp.dest(CONFIG.modules.path + module_name))
+
+});
+
 gulp.task('watch', function() {
     gulp.watch(paths.sass, ['sass']);
-    //gulp.watch(paths.js, ['bundle']);
 });
 
 gulp.task('watchjs', function() {
