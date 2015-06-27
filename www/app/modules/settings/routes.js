@@ -12,7 +12,7 @@
                 url: '/language',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: CONFIG.paths.screens + '/settings/settings-language.html',
+                        templateUrl: CONFIG.paths.screens + '/settings/language.html',
                         controller: 'LanguageCtrl'
                     }
                 }
@@ -21,7 +21,7 @@
                 url: '/profile',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: CONFIG.paths.screens + '/settings/settings-profile.html',
+                        templateUrl: CONFIG.paths.screens + '/settings/profile.html',
                         controller: 'ProfileCtrl'
                     }
                 }

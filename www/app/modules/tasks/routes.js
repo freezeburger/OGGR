@@ -3,7 +3,7 @@
     var moduleDependencies = [];
     angular.module('tasks.routes', moduleDependencies)
 
-    .config(['CONFIG', $stateProvider', '$urlRouterProvider', configFn]);
+    .config(['CONFIG', '$stateProvider', '$urlRouterProvider', configFn]);
 
     function configFn(CONFIG, $stateProvider, $urlRouterProvider) {
 

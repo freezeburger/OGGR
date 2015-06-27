@@ -17,7 +17,7 @@
             .state('start.forgot', {
                 url: "/forgot",
                 abstract: false,
-                templateUrl: CONFIG.paths.screens + 'login/forgot.html'
+                templateUrl: CONFIG.paths.screens + '/login/forgot.html'
             })
 
 
