@@ -12,7 +12,8 @@
             .state('start.signin', {
                 url: "/signin",
                 abstract: false,
-                templateUrl: CONFIG.paths.screens + '/login/login.html'
+                templateUrl: CONFIG.paths.screens + '/login/login.html',
+                controller: 'LoginCtrl'
             })
             .state('start.forgot', {
                 url: "/forgot",

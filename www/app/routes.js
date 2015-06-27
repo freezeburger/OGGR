@@ -16,7 +16,6 @@
                 url: "/start",
                 abstract: true,
                 templateUrl: CONFIG.paths.layouts + '/screen-start.html',
-                controller: 'StartCtrl'
             })
             // setup abstracts states for the nested side-menu/tabs directive    
             .state('oggr', {

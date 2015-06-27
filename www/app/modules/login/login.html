@@ -11,8 +11,11 @@
             </label>
         </div>
         <div>
-            <button class="button button-block button-royal" ng-click="signIn(user)">
+            <button class="button button-block button-royal" ng-click="signIn()">
                 {{UI.labels[UI.lang].action.signIn}}
+            </button>
+            <button class="button button-block button-royal" ng-click="signUp()">
+                {{UI.labels[UI.lang].action.signUp}}
             </button>
             <button class="button button-block button-royal" ng-click="fbLogin()">
                 {{UI.labels[UI.lang].action.facebook}}
