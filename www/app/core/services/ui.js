@@ -18,10 +18,12 @@
 
         //var labels = {};
 
-        this.lang = 'en';
+        this.lang = DEFAULT_LANGUAGE;
         this.languages = languages;
         this.labels = labels;
     };
+
+    var DEFAULT_LANGUAGE = 'en' ;
 
     var languages = [{
         name: 'Français',
@@ -32,6 +34,12 @@
     }, {
         name: 'Spanish',
         code: 'es'
+    }, {
+        name: 'Chinese',
+        code: 'cn'
+    }, {
+        name: 'Russian',
+        code: 'ru'
     }];
 
 })();

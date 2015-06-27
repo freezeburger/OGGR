@@ -3,16 +3,16 @@
     var moduleDependencies = [];
     angular.module('settings.routes', moduleDependencies)
 
-    .config(['$stateProvider', '$urlRouterProvider', configFn]);
+    .config(['CONFIG','$stateProvider', '$urlRouterProvider', configFn]);
 
-    function configFn($stateProvider, $urlRouterProvider) {
+    function configFn(CONFIG, $stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('oggr.tab.language', {
                 url: '/language',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'app/layout/settings/settings-language.html',
+                        templateUrl: CONFIG.paths.screens + '/settings/settings-language.html',
                         controller: 'LanguageCtrl'
                     }
                 }
@@ -21,7 +21,7 @@
                 url: '/profile',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'app/layout/settings/settings-profile.html',
+                        templateUrl: CONFIG.paths.screens + '/settings/settings-profile.html',
                         controller: 'ProfileCtrl'
                     }
                 }

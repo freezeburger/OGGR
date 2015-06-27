@@ -8,7 +8,7 @@
 
     function factory($firebaseArray) {
         var messagesRef = new Firebase('https://oggr.firebaseio.com/messages'),
-            messagesFBA = $firebaseArray(messagesRef.limit(3)),
+            messagesFBA = $firebaseArray(messagesRef.limitToLast(15)),
             messageIter = 0;
 
         return {

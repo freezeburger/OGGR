@@ -3,15 +3,15 @@
     var moduleDependencies = [];
     angular.module('planning.routes', moduleDependencies)
 
-    .config(['$stateProvider', '$urlRouterProvider', configFn]);
+    .config(['CONFIG','$stateProvider', '$urlRouterProvider', configFn]);
 
-    function configFn($stateProvider, $urlRouterProvider) {
+    function configFn(CONFIG, $stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('oggr.tab.planning', {
                 url: '/planning',
                 views: {
                     'out-of-tabs': {
-                        templateUrl: 'app/layout/tabs-out/tab-out-planning.html',
+                        templateUrl: CONFIG.paths.screens + '/planning/planning.html',
                     }
                 }
             })

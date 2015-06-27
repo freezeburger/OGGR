@@ -3,16 +3,16 @@
     var moduleDependencies = [];
     angular.module('contacts.routes', moduleDependencies)
 
-    .config(['$stateProvider', '$urlRouterProvider', configFn]);
+    .config(['CONFIG','$stateProvider', '$urlRouterProvider', configFn]);
 
-    function configFn($stateProvider, $urlRouterProvider) {
+    function configFn(CONFIG, $stateProvider, $urlRouterProvider) {
 
         $stateProvider
             .state('oggr.tab.contacts', {
                 url: '/contacts',
                 views: {
                     'tab-contacts': {
-                        templateUrl: 'app/layout/tabs/tab-contacts.html',
+                        templateUrl: CONFIG.paths.screens + '/contacts/contacts.html',
                         controller: 'ContactsCtrl'
                     }
                 }
@@ -21,7 +21,7 @@
                 url: '/contacts/:contactId',
                 views: {
                     'tab-contacts': {
-                        templateUrl: 'app/layout/tabs/tab-contacts-detail.html',
+                        templateUrl: CONFIG.paths.screens + '/contacts/contacts-detail.html',
                         controller: 'ContactsDetailCtrl'
                     }
                 }

@@ -3,16 +3,16 @@
     var moduleDependencies = [];
 	angular.module('chat.routes', moduleDependencies )
 
-	.config(['$stateProvider', '$urlRouterProvider', configFn]);
+	.config(['CONFIG','$stateProvider', '$urlRouterProvider', configFn]);
 
-    function configFn($stateProvider, $urlRouterProvider) {
+    function configFn(CONFIG, $stateProvider, $urlRouterProvider) {
 
     	$stateProvider
     	    .state('oggr.tab.chats', {
                 url: '/chats',
                 views: {
                     'tab-chats': {
-                        templateUrl: 'app/layout/tabs/tab-chats.html',
+                        templateUrl: CONFIG.paths.screens + '/chat/chats.html',
                         controller: 'ChatsCtrl'
                     }
                 }
@@ -21,7 +21,7 @@
                 url: '/chats/:chatId',
                 views: {
                     'tab-chats': {
-                        templateUrl: 'app/layout/tabs/tab-chats-detail.html',
+                        templateUrl: CONFIG.paths.screens + '/chat/chats-detail.html',
                         controller: 'ChatsDetailCtrl'
                     }
                 }

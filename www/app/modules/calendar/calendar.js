@@ -10,7 +10,7 @@
 
 	.config( ['CONFIG','$stateProvider','$urlRouterProvider', configureRoute ] );
 
-    function configureRoute (CONFIG,$stateProvider, $urlRouterProvider) {
+    function configureRoute (CONFIG, $stateProvider, $urlRouterProvider) {
 
         $stateProvider.state('oggr.tab.calendar', {
             url: '/calendar',

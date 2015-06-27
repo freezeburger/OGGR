@@ -14,16 +14,19 @@
         <div class="padding">
             <ol class="messages">
                 <li ng-repeat="message in messages" on-hold="getActions()" ng-click="getActions()">
-                    <oggr-chat-message ><oggr-chat-message>    
+                    <oggr-chat-message>
+                        <oggr-chat-message>
                 </li>
             </ol>
         </div>
     </ion-content>
     <ion-footer-bar class="item-input-inset padding bar-assertive">
+        <form name="uiChat">
         <label class="item-input-wrapper">
-            <input type="search" placeholder="" ng-model="message"  ng-focus="scrollDown()">
+            <input type="search" placeholder="" ng-model="message" name="message" ng-focus="scrollDown()" required>
         </label>
-        <button class="button button-clear" ng-click="add()">
+        </form>
+        <button class="button button-clear" ng-click="add()" ng-disabled="uiChat.message.$invalid">
             <i class="icon ion-paper-airplane"></i>
         </button>
     </ion-footer-bar>
