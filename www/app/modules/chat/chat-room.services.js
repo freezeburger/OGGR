@@ -1,6 +1,6 @@
 (function() {
 
-    var moduleDependencies = ['chats','firebase'];
+    var moduleDependencies = ['firebase'];
 
     angular.module('chat-room', moduleDependencies)
 

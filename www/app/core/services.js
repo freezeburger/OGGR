@@ -4,9 +4,7 @@
     var moduleDependencies = [
         'firebase', //External
         'ui', 
-        'calendar-events', 
-        'contacts', 
-        'chats'
+        'calendar-events'
     ];
 
     angular.module('core.services', moduleDependencies);

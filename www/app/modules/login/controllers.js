@@ -5,11 +5,38 @@
     angular.module('login.controllers', moduleDependencies)
 
     .controller('LoginCtrl', function($scope, $state) {
+
+        var ref = new Firebase("http://oggr.firebaseio.com");
+
+
         $scope.signIn = function(user) {
-            $state.go('oggr.tab.dashboard');
+            ref.authWithPassword({
+                email: "bobtony@firebase.com",
+                password: "correcthorsebatterystaple"
+            }, function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+                    $state.go('oggr.tab.dashboard');
+                }
+            });
+
         };
         $scope.signUp = function(user) {
-            $state.go('oggr.tab.dashboard');
+
+            ref.createUser({
+                email: "bobtony@firebase.com",
+                password: "correcthorsebatterystaple"
+            }, function(error, userData) {
+                if (error) {
+                    console.log("Error creating user:", error);
+                } else {
+                    console.log("Successfully created user account with uid:", userData.uid);
+                    $state.go('oggr.tab.dashboard');
+                }
+            });
+
         };
         $scope.fbLogin = function() {
             openFB.login(

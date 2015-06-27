@@ -35,6 +35,7 @@
         },
         "forms": {
             "userName": "Username",
+            "email": "Email",
             "password": "Password"
         }
     },
