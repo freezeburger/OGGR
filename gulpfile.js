@@ -93,7 +93,7 @@ gulp.task('bundle', function() {
         .pipe(sourcemaps.init())
         .pipe(concat('app.bundle.js'))
         //.pipe(uglify())
-        .pipe(ngAnnotate())
+        //.pipe(ngAnnotate())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./www/lib'))
         //.on('end', function(){ gutil.log('Done!'); sh.exec('r');});

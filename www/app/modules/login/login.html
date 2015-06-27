@@ -1,25 +1,27 @@
 <ion-view view-title="{{UI.labels[UI.lang].nav.login}}'">
     <ion-content class="padding" style="top:45vh;">
         <div class="list">
-            <label class="item item-input">
-                <span class="input-label">{{UI.labels[UI.lang].forms.email}}</span>
-                <input type="text" ng-model="user.username">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">{{UI.labels[UI.lang].forms.password}}</span>
-                <input type="password" ng-model="user.password">
-            </label>
+            <form name="login">
+                <label class="item item-input">
+                    <span class="input-label">{{UI.labels[UI.lang].forms.email}}</span>
+                    <input type="email" ng-model="user.email" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">{{UI.labels[UI.lang].forms.password}}</span>
+                    <input type="password" required ng-model="user.password">
+                </label>
+            </form>
         </div>
         <div class="button-bar">
-            <a class="button button-block button-dark" ng-click="signIn()">
+            <button class="button button-block button-dark" ng-click="signIn()" ng-disabled="login.$invalid">
                 {{UI.labels[UI.lang].action.signIn}}
-            </a>
-            <a class="button button-block button-dark" ng-click="signUp()">
+            </button>
+            <button class="button button-block button-dark" ng-click="signUp()" ng-disabled="login.$invalid">
                 {{UI.labels[UI.lang].action.signUp}}
-            </a>
-            <a class="button button-block button-dark" ng-click="fbLogin()">
+            </button>
+            <button class="button button-block button-dark" ng-click="fbLogin()" ng-disabled="login.$invalid">
                 {{UI.labels[UI.lang].action.facebook}}
-            </a>
+            </button>
         </div>
         <p class="text-center">
             <a href="#/start/forgot">{{UI.labels[UI.lang].nav.forgot}}</a>

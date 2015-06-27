@@ -1,15 +1,21 @@
 <ion-view view-title="Forgot Password">
     <ion-content class="padding" style="top:45vh;">
         <div class="list">
-            <label class="item item-input">
-                <span class="input-label">{{UI.labels[UI.lang].forms.email}}</span>
-                <input type="text" ng-model="user.username">
-            </label>
+            <form name="forgot">
+                <label class="item item-input">
+                    <span class="input-label">{{UI.labels[UI.lang].forms.email}}</span>
+                    <input type="email" ng-model="user.email" required>
+                </label>
+            </form>
         </div>
         <div>
             <div class="button-bar">
-                <a class="button button-dark ion-arrow-left-c col col-33" href="#/start/sigin">{{UI.labels[UI.lang].action.signIn}}</a>
-                <a class="button button-dark col col-67" ng-click="signIn(user)">{{UI.labels[UI.lang].action.forgot}}</a>
+                <a class="button button-dark ion-arrow-left-c col col-33" href="#/start/sigin">
+                {{UI.labels[UI.lang].action.signIn}}
+                </a>
+                <button class="button button-dark col col-67" ng-click="retrieve()" ng-disabled="forgot.$invalid">
+                {{UI.labels[UI.lang].action.forgot}}
+                </button>
             </div>
         </div>
     </ion-content>
