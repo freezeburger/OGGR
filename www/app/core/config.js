@@ -11,7 +11,7 @@
                 screens: 'app/modules',
                 layouts: 'app/layout',
             },
-            server : 'http://192.168.1.102:5000/',
+            server : 'http://localhost:8100/',
         };
     }
 

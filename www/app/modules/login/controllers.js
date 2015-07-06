@@ -4,24 +4,21 @@
 
     angular.module('login.controllers', moduleDependencies)
 
-    .controller('LoginCtrl', ['$scope','$state', 'ODB', LoginCtrl])
+    .controller('LoginCtrl', ['$scope','$state','$timeout','ODB', LoginCtrl])
 
-    function LoginCtrl($scope, $state, ODB) {
+    function LoginCtrl($scope, $state, $timeout, ODB) {
 
-        $scope.user = {
+        var user ={
             email:'renaud.dubuis@decryptage.net',
-            password:'zoe'
+            password:''
         };
+        shakeReset();
+        
+        $scope.signIn = function() {ODB.user.connect($scope.user).then(redirect,shakeReset)};
 
-        function redirect(){
-            $state.go('oggr.tab.dashboard');
-        }
+        $scope.signUp = function() {ODB.user.register($scope.user).then(redirect,shakeReset)};
 
-        $scope.signIn = function() {ODB.user.connect($scope.user).then(redirect)};
-
-        $scope.signUp = function() {ODB.user.register($scope.user).then(redirect)};
-
-        $scope.fbLogin = function() {
+        /*$scope.fbLogin = function() {
             openFB.login(
                 function(response) {
                     if (response.status === 'connected') {
@@ -34,7 +31,20 @@
                 }, {
                     scope: 'email,publish_actions,user_friends'
                 });
-        };
+        };*/
+
+        function redirect(){
+            $state.go('oggr.tab.dashboard');
+        }
+
+        function shakeReset(){
+            $timeout(function(){
+                $scope.shake = false;
+                $scope.user = angular.copy(user);
+                $scope.$apply();
+            },500);
+            $scope.shake = true;
+        }
     }
 
 

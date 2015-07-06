@@ -1,0 +1,394 @@
+{
+    "title": "Paradis at La Cigalle, Paris",
+    "date": "Thursday, March 11th 2015",
+    "duration": "12",
+    "time": "21H30",
+    "location": {
+        "country": "FRANCE",
+        "city": "Paris",
+        "address": "120 Boulevard Rochechouart",
+        "zipcode": "75018",
+        "coords": {
+            "lat": 43.279361,
+            "lng": 5.354632
+        }
+    },
+    "status": "confirmed",
+    "type": {
+        "type": "Live Show",
+        "subtype": "Show"
+    },
+    "details": {
+        "personnal": "",
+        "shared": ""
+    },
+    "crew": {
+        "total": 15,
+        "artits": ["Laurent White", "Fabian Black", "July Pink", "Renaud Blue", "Paul Red"],
+        "staff": ["Fred one (Tour manager)", "Paul Two ( FOH)", "John Three (Monitors)", "Sebastian Four (Backline)", "Mike Five ( Lightings)", "Michele Six (Video)", "Will Seven (Bus driver)"],
+        "others": ["Pierre Philly (Production Manager)", "Louise Boston (Tour Producer)", "Tony Mars ( Label )"],
+        "stagehands": "4 for load in and load out , and 1 from load in to load out",
+        "runner": "Yes provided by promoter",
+        "venue":[]
+    },
+    "distances": {
+        "units": "km/hours",
+        "venue": {
+            "to_hotel": "12/.25",
+            "to_airport": "12/.25"
+        },
+        "hotel": {
+            "to_venue": "12/.25",
+            "to_train": "12/.25"
+        }
+    },
+    "reminders": [],
+    "venue": {
+        "name": "La Cigale",
+        "type": "Concert",
+        "location": {
+            "timezone": false,
+            "country": "FRANCE",
+            "city": "Paris",
+            "state": "75",
+            "address1": "120 Boulevard Rochechouart",
+            "address2": "",
+            "address3": "",
+            "zipcode": "75018",
+            "coords": {
+                "lat": 43.279361,
+                "lng": 5.354632
+            }
+        },
+        "contact": {
+            "website": "www.lacigalle.fr",
+            "tel": "01 43 43 14 93 33",
+            "email": "info@lacigalle.fr"
+        },
+        "description": {
+            "parkings": {
+                "van": {
+                    "entrance": "128 rue des Martyrs, Paris, 75018",
+                    "power": "32 AMP",
+                    "water": false
+                },
+                "tourbus": {
+                    "entrance": "Parking de la cité des sciences, 129 Boulevard MAC Donald, Paris,75019",
+                    "power": false,
+                    "water": false
+                },
+                "truck": false
+            },
+            "technical": {
+                "indoor": false,
+                "capacity_total": "1400(1200 standing, 200 standing)",
+                "stages": [{
+                    "name": "stage1",
+                    "capacity": "1400(1200 standing, 200 standing)",
+                    "size": {
+                        "unit": "meters",
+                        "width": 12,
+                        "depth": 8,
+                        "height": 1.2,
+                        "clearance": 5
+                    },
+                    "gear": {
+                        "audio": "in house",
+                        "video": "touring rig",
+                        "lightnings": "in house + touring rig",
+                        "backline": "touring rig + rental"
+                    },
+                    "barricade": true,
+                    "power": {
+                        "audio": "1 x 32 AMP Tri P17 at stage left",
+                        "lightnings": "2 x 32 AMP Tri P17 at stage right,up stage"
+                    },
+                    "facilities": {
+                        "production_office": 1,
+                        "dressing_room": 3,
+                        "showers": 3
+                    },
+                    "communications": {
+                        "wifi": "network: artists / password: 12349876"
+                    },
+                    "cathering": {
+                        "breakfast": "Buy out, 10€ on salary",
+                        "lunch": "15€ from Promoter",
+                        "dinner": "in house catering 19:30 - 20:30"
+                    },
+                    "merchandising": {
+                        "deal": "fee 75 euros, or 20 %",
+                        "seller": true,
+                        "spot": "table with light in venue entrance",
+                        "currency": "change to band currency"
+                    },
+                    "loading_address": "122 rue des Martyrs, Paris, 75018",
+                    "restriction": "Public must be 16 years old",
+                    "files": [
+                        "Venue tech specs.pdf",
+                        "Venue access Maps.pdf",
+                        "Parking map.pdf",
+                        "rental listings.pdf",
+                        "Festival line up.pdf"
+                    ],
+                    "artist_access": "128 rue des Martyrs, Paris, 75018"
+                }, {
+                    "name": "stage1",
+                    "capacity": "1400(1200 standing, 200 standing)",
+                    "size": {
+                        "unit": "meters",
+                        "width": 12,
+                        "depth": 8,
+                        "height": 1.2,
+                        "clearance": 5
+                    },
+                    "gear": {
+                        "audio": "in house",
+                        "video": "touring rig",
+                        "lightnings": "in house + touring rig",
+                        "backline": "touring rig + rental"
+                    },
+                    "barricade": true,
+                    "power": {
+                        "audio": "1 x 32 AMP Tri P17 at stage left",
+                        "lightnings": "2 x 32 AMP Tri P17 at stage right,up stage"
+                    },
+                    "facilities": {
+                        "production_office": 1,
+                        "dressing_room": 3,
+                        "showers": 3
+                    },
+                    "communications": {
+                        "wifi": "network: artists / password: 12349876"
+                    },
+                    "cathering": {
+                        "breakfast": "Buy out, 10€ on salary",
+                        "lunch": "15€ from Promoter",
+                        "dinner": "in house catering 19:30 - 20:30"
+                    },
+                    "merchandising": {
+                        "deal": "fee 75 euros, or 20 %",
+                        "seller": true,
+                        "spot": "table with light in venue entrance"
+                    },
+                    "loading_address": "122 rue des Martyrs, Paris, 75018",
+                    "restriction": "Public must be 16 years old",
+                    "files": [
+                        "Venue tech specs.pdf",
+                        "Venue access Maps.pdf",
+                        "Parking map.pdf",
+                        "rental listings.pdf",
+                        "Festival line up.pdf"
+                    ],
+                    "artist_access": "128 rue des Martyrs, Paris, 75018",
+                    "crew": {
+                        "production": 1,
+                        "sound": 1,
+                        "video": 1,
+                        "lightnings": 1,
+                        "stage": 1,
+                        "electrician": 1
+                    }
+                }]
+            },
+            "forecast": false,
+            "currency": "local currency / change rate",
+            "timezone": "décalage horaire UTC+1",
+            "pictures": [
+                "google map with venue at city scale",
+                "Venue picture outside and a view of the stage"
+            ]
+        }
+
+    },
+    "travels": {
+        "mode:": ["Runner", "Taxi", "Foot", "Plane", "TourBus", "Minivan", "Ferry boat", "Tunnel", "Band Minibus", "Truck"],
+        "list": [{
+            "date": "",
+            "itinerary": {
+                "from": "",
+                "to": "",
+                "departure": "",
+                "arrival": "",
+                "distance": "",
+                "duration": ""
+            },
+            "description": {
+                "title": "Sample",
+                "mode": "",
+                "pickup": "",
+                "dropoff": "",
+                "comment": ""
+            },
+            "driver": {
+                "name": "",
+                "mobile": ""
+            },
+            "files": []
+        }, {
+            "date": "Thursday 11 th March",
+            "itinerary": {
+                "from": "Hotel",
+                "to": "Train Station",
+                "departure": "7.15",
+                "arrival": "8.55",
+                "distance": "20",
+                "duration": ".40"
+            },
+            "description": {
+                "title": "Transfert hotel to train station",
+                "mode": "runner",
+                "comment": "Pickup at lobby"
+            },
+            "driver": {
+                "name": "Alex",
+                "contact": "+33 456 873 344"
+            },
+            "files": [],
+            "people": ["Pierre", "Paul", "Jacques"]
+        }, {
+            "date": "Thursday 11 th March",
+            "itinerary": {
+                "from": "Paris Gare de Lyon",
+                "to": "Toulon",
+                "departure": "8.45",
+                "arrival": "12.15",
+                "distance": "600",
+                "duration": "3.30"
+            },
+            "description": {
+                "title": "TRAIN 2314: Paris 08: 45 > Toulon  12: 15",
+                "mode": "train",
+                "comment": "Please arrive 10 miinutes before."
+            },
+            "files": ["Booking QSDF23 Eticket.pdf",
+                "Booking QGF42 Eticket.pdf"
+            ]
+        }, {
+            "date": "Friday 12 th March",
+            "itinerary": {
+                "from": "Train Station",
+                "to": "Venue",
+                "departure": "10.45",
+                "arrival": "11.00",
+                "distance": "3",
+                "duration": ".15"
+            },
+            "description": {
+                "title": "Transfert train station to venue",
+                "mode": "Runner",
+                "comment": ""
+            },
+            "driver": {
+                "name": "Alex",
+                "contact": "+33 456 873 344"
+            },
+            "files": ["meeting point map.pdf"],
+            "people": ["Pierre", "Paul", "Jacques"]
+        }, {
+            "date": "Friday 12 th March",
+            "itinerary": {
+                "from": "Venue",
+                "to": "Hotel",
+                "departure": "1.30",
+                "arrival": "1.40",
+                "distance": "4",
+                "duration": ".10"
+            },
+            "description": {
+                "title": "Transfert Venue to hotel",
+                "mode": "Runner",
+                "comment": "at 01 H30 in dressing rooms"
+            },
+            "driver": {
+                "name": "Alex",
+                "contact": "+33 456 873 344"
+            },
+            "files": [],
+            "people": ["Pierre", "Paul", "Jacques"]
+        }, {
+            "date": "Friday 12 th March",
+            "itinerary": {
+                "from": "Hotel",
+                "to": "Airport",
+                "departure": "9.10",
+                "arrival": "12.15",
+                "distance": "20",
+                "duration": ".40"
+            },
+            "description": {
+                "title": "Transfert hotel to airport",
+                "mode": "Taxi",
+                "comment": "Pickup 09 H10 in Lobby"
+            },
+            "files": [],
+            "people": ["Pierre", "Paul"]
+        }, {
+
+            "date": "Friday 12 th March",
+            "itinerary": {
+                "from": "Hotel",
+                "to": "Lobby",
+                "departure": "9.15",
+                "arrival": "9.55",
+                "distance": "30",
+                "duration": ".40"
+            },
+            "description": {
+                "title": "Sample",
+                "mode": "Taxi",
+                "comment": ""
+            },
+            "files": [],
+            "people": ["Michel", "Mike", "Julia", "Steeve"]
+        }, {
+            "date": "Friday 12 th March",
+            "itinerary": {
+                "from": "Paris CDG T2E",
+                "to": "New - York La Guardia T1A",
+                "departure": "11.45",
+                "arrival": "13.15",
+                "distance": "9000",
+                "duration": "6.45"
+            },
+            "description": {
+                "title": "Flight AF007: 11: 45 Paris CDG T2E > 13:30 New York La Guardia T1A ",
+                "mode": "plane",
+                "comment": ""
+            },
+            "files": ["Booking Reference: QSDF23 Eticket.pdf",
+                "Booking Reference: QGF42  Eticket.pdf"
+            ],
+            "people": ["Pierre", "Paul", "Jacques"]
+        }]
+    },
+    "pulse": {
+        "2015.07.11": {
+            "07.10": "Lobby Call",
+            "07.15": "transfert hotel to train station",
+            "08.45": "train Toulon to Paris",
+            "10.45": "transfert from train station to venue",
+            "11.15": "Paradis Getin",
+            "11.45": "Paradis Load in",
+            "12.30": "Paradis setup on risers side of stage",
+            "13.30": "- 15.00 Paradis setup and soundcheck",
+            "14.30": "- 16.00 Paradis lighting focus",
+            "19.00": "doors",
+            "19.30": "- 20.30 Dinner at venue catering",
+            "20.00": "- 21.00 support band show",
+            "21.00": "- 21.30 changeover",
+            "21.30": "- 23.00 Paradis show"
+        },
+        "2015.07.12": {
+            "00.30": "loadout",
+            "01.30": "backstage curfew",
+            "01.30": "transfert from venue to hotel",
+            "09.00": "lobby call",
+            "09.10": "transfert from hotel to airport",
+            "12.00": "flight Paris to NEw - York"
+        }
+
+
+
+    }
+}

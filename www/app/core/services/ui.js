@@ -10,7 +10,7 @@
 
         //TODO of course remove;
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', CONFIG.server + 'app/core/data/ui.labels.json', false);
+        xhr.open('GET', 'app/core/data/ui.labels.json', false);//CONFIG.server + 
         //xhr.open('GET', 'app/core/data/ui.labels.json', false);
         xhr.send();
 

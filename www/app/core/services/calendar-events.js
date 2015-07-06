@@ -10,7 +10,7 @@
 
         // Some fake testing data
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', CONFIG.server + 'app/core/data/calendar-events.json', false);
+        xhr.open('GET', 'app/core/data/calendar-events.json', false);//CONFIG.server + 
         xhr.send();
 
         var fakeData = JSON.parse(xhr.responseText);

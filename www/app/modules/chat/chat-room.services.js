@@ -66,7 +66,6 @@
 
             room.deleteMessage = function(msg) {
                 this.data.splice(this.data.indexOf(msg), 1);
-
             }
             return room;
         };
