@@ -1,0 +1,77 @@
+$size: 40px;
+
+.notification{
+	position: absolute;
+	z-index:1;
+	background: rgba(0,0,0,.85);
+	height:$dashboardHeight;
+	padding:20px;
+	color:white;
+	width:100vw;
+	text-align:center;
+	h1{
+		margin:0;
+	}
+	&>div>.link{
+		$wh : (94vw * 25.33 / 100) * .61;
+		width: $wh;
+        height: $wh;
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px rgba(black, .5);
+        margin:10px 10px 10px 10px;
+        float:left;
+        background-size:cover;
+	}
+	&>div>p{
+		text-align:left;
+		padding:10px;
+		color:rgba(255,255,255,.6);
+		font-weight: 300;
+	}
+}
+
+main>section.notification-list {
+	background: rgba(0,0,0,.85);
+	width:100vw;
+	padding: 10px 15px 10px 15px ;
+    overflow: auto;
+    &.open{
+    	height:$mainHeight;
+    }
+    .notification-item{
+		color:white;
+		padding-bottom:5px;
+		border-bottom:1px solid rgba(255,255,255,.1);
+		clear:both;
+		margin-left:40px;
+		//margin-left:20px;
+    	.link{
+			$wh : (94vw * 25.33 / 100) * .51;
+			width: $wh;
+	        height: $wh;
+	        border-radius: 5px;
+	        box-shadow: 1px 1px 3px rgba(black, .5);
+	        margin:18px 18px 18px 0;
+	        float:left;
+	        background-size:cover;
+	        opacity:.8;
+		}
+		div>p{
+			text-align:left;
+			padding:10px;
+			padding-top:5px;
+			margin:0;
+			color:rgba(255,255,255,.5);
+			color:#B8A4A4;
+			font-weight:200;
+			font-size:.85em;
+		}
+		div>h1{
+			font-size:1.2em;
+			margin:0;
+			text-align:left;
+			padding-top:5px;
+			color:rgba(255,255,255,.8);
+		}
+    }
+}

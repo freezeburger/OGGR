@@ -1,0 +1,23 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" d="m256,0c-88.358994,0 -160,71.625 -160,160c0,24.75 5.625,48.218994 15.671997,69.125c0.562004,1.188004 144.328003,282.875 144.328003,282.875l142.593994,-279.375c11.125,-21.781006 17.406006,-46.468994 17.406006,-72.625c0,-88.375 -71.625,-160 -160,-160zm0,256c-53.016006,0 -96,-43 -96,-96s42.983994,-96 96,-96c53,0 96,43 96,96s-43,96 -96,96z"/>
+ </g>
+ <g display="inline">
+  <title>Calque 2</title>
+  <circle id="svg_2" r="125.24379" cy="173.000001" cx="237.000001" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g>
+  <title>Calque 6</title>
+  <path d="m256,483l65,-199l53,45l50,-63l-177.5,-61l-157.5,63l55,55l44,-38l68,198z" id="svg_11" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#ffffff"/>
+ </g>
+ <g>
+  <title>Calque 5</title>
+  <circle id="svg_8" r="14.735384" cy="358.5" cx="256" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000"/>
+  <circle id="svg_9" r="11.235384" cy="404.000001" cx="256.000001" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000"/>
+ </g>
+ <g>
+  <title>Calque 7</title>
+  <text transform="matrix(8.429998526576128,0,0,8.429998526576128,-1370.5552915552585,-1245.769493439072) " xml:space="preserve" text-anchor="middle" font-family="Sans-serif" font-size="24" id="svg_12" y="176.195752" x="191.227843" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#000000" fill="#000000">G</text>
+ </g>
+</svg>

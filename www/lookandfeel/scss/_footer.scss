@@ -1,0 +1,44 @@
+$size: 40px;
+
+footer{
+	width:100vw;
+	height:6vh;
+	background:rgba(0, 0, 0, 1);
+	position: absolute;
+	z-index:1;
+	bottom:0;
+	border-top:3px solid black;
+	&>section{
+		&>nav{
+			height:6vh;
+			align-items: center;
+			&>i{
+				display:inline-block;
+				height:$size;
+				width:$size;
+				border-radius: $size / 10;
+				background:rgba(0, 0, 0, 0.37);
+				align-items: center;
+				text-align: center;
+				padding-top:5px;
+				&:before{
+					font-size:1.5em;
+					color:rgba(255, 255, 255, 0.15);
+				}
+				&:nth-child(3){
+					height: $size * 1.5;
+					width: $size * 1.5;
+					border-radius: $size * .75;
+					background:white;
+					border:3px solid black;
+					font-size:2.1em;
+					vertical-align: middle;
+					font-family:Helvetica;
+					font-style: normal;
+					font-weight: bold;
+					font-family:'Lato'
+				}
+			}
+		}
+	}
+}

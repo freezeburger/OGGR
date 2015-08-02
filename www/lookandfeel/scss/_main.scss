@@ -1,0 +1,31 @@
+/* Main Content
+   ========================================================================== */
+/**
+ * TODO : Rename
+ */
+
+main>section.content {
+    padding: 10px;
+    height:$mainHeight;
+    overflow: auto;
+    color:map-deep-get($main, "title", "color");
+    &>div{
+    	background: rgba(124, 183, 255,.1);
+    	//box-shadow:0 0 3px rgba(0, 0, 0,.1);;
+    	border-radius:5px;
+    	padding:5px;
+    	margin-bottom:10px;
+    	&>h1{
+		  font-size: 1.4em;
+		  margin: 0.3em 0;
+		  border-bottom:1px solid rgba(0,0,0,.1);
+          color:rgba(0, 0, 0, .55);
+    	}
+    	&>p{
+		  color: rgba(50, 26, 40, 0.59);
+		  font-size:.9em;
+    	}
+    }
+}
+
+@import 'main-contact';

@@ -1,0 +1,911 @@
+/* Global 3rd Party imports
+   ========================================================================== */
+/**
+ * 3rd Party Dependencies
+ */
+/**
+ * Reset
+ */
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/**
+ * Web Font
+ */
+@font-face {
+  font-family: 'icomoon';
+  src: url("https://i.icomoon.io/public/temp/06998bda3e/UntitledProject1/icomoon.eot");
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+  content: "\e60b";
+}
+
+.icon-flag:before {
+  content: "\e60c";
+}
+
+.icon-plus:before {
+  content: "\e60d";
+}
+
+.icon-newspaper:before {
+  content: "\e600";
+}
+
+.icon-refresh:before {
+  content: "\e601";
+}
+
+/* Setup
+   ========================================================================== */
+/**
+ * Global Structure Set Up
+ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #333;
+  text-rendering: geometricPrecision;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato';
+  font-weight: 500;
+}
+
+style {
+  display: none !important;
+}
+
+form, label, input, button {
+  font-family: 'Lato';
+  font-weight: 500;
+}
+
+input, button {
+  border-radius: 5px;
+  background: none;
+  border: none;
+  border: 1 px solid currentColor;
+}
+
+button {
+  background-color: black;
+}
+
+/*
+body:after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    //background: url(../backgrounds/screen.png);
+    //background: url(../backgrounds/smoke.jpg);
+    //NOT TO BAD 
+    background: url(../backgrounds/pastelfractal.jpg);
+    //background: url(../backgrounds/bubble.jpg);
+    //background: url(../backgrounds/sunnyroad.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    //background-position:0;
+    //background-position:-33vw;
+    background-position:-50vw;
+}*/
+main {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Flex Layout
+   ========================================================================== */
+/**
+ * Flex Box Model through class
+ */
+.container {
+  display: flex;
+}
+.container.row {
+  flex-direction: row;
+}
+.container.row-reverse {
+  flex-direction: row-reverse;
+}
+.container.column {
+  flex-direction: column;
+}
+.container.column-reverse {
+  flex-direction: column-reverse;
+}
+.container.flex-start {
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+}
+.container.flex-end {
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+.container.center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.container.space-between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+.container.space-around {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+
+/* Main Content
+   ========================================================================== */
+/**
+ * TODO : Rename
+ */
+main > section.content {
+  padding: 10px;
+  height: 70.52186vh;
+  overflow: auto;
+  color: rgba(11, 14, 20, 0.65);
+}
+main > section.content > div {
+  background: rgba(124, 183, 255, 0.1);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+main > section.content > div > h1 {
+  font-size: 1.4em;
+  margin: 0.3em 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.55);
+}
+main > section.content > div > p {
+  color: rgba(50, 26, 40, 0.59);
+  font-size: .9em;
+}
+
+/* Main Content : Contacts
+   ========================================================================== */
+.penta {
+  -webkit-clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+  -moz-clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+  -ms-clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+  clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+}
+
+.hexa {
+  -webkit-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  -moz-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  -ms-clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.hepta {
+  -webkit-clip-path: polygon(50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19%);
+  -moz-clip-path: polygon(50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19%);
+  -ms-clip-path: polygon(50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19%);
+  clip-path: polygon(50% 0, 90% 19%, 100% 62%, 72% 100%, 28% 100%, 0 62%, 10% 19%);
+}
+
+.octa, main > section.content > .contact img {
+  -webkit-clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+  -moz-clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+  -ms-clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+  clip-path: polygon(29% 0, 71% 0, 100% 29%, 100% 71%, 71% 100%, 29% 100%, 0 71%, 0 29%);
+}
+
+.nona {
+  -webkit-clip-path: polygon(50% 0, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  -moz-clip-path: polygon(50% 0, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  -ms-clip-path: polygon(50% 0, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  clip-path: polygon(50% 0, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+}
+
+main > section.content > .contact {
+  clear: both;
+  height: 90px;
+}
+main > section.content > .contact img {
+  height: 70px;
+  width: 70px;
+  float: left;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+main > section.content > .contact p {
+  margin: 0 0 0 90px;
+}
+main > section.content > .contact h1 {
+  margin: 0 0 10px 90px;
+}
+
+/* Dashboard
+   ========================================================================== */
+/**
+ * Dashboard navigation
+ */
+header {
+  background: rgba(0, 0, 0, 0.55);
+  width: 100vw;
+  height: 29.47814vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5) inset;
+  /**
+   * Dashboard Deck 
+   */
+}
+header > .deck {
+  width: 1400vw;
+  height: 29.47814vh;
+  display: block;
+  position: relative;
+}
+header > .deck > nav {
+  overflow: hidden;
+  width: 94vw;
+  height: 89%;
+  display: inline-block;
+  position: relative;
+  float: left;
+  margin: 3vw;
+  border-radius: 5px;
+}
+
+/**
+ * Dashboard Deck Cards
+ */
+header > .deck > nav > div {
+  display: inline-block;
+}
+header > .deck > nav > div:first-of-type {
+  width: 23.8102vw;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  float: left;
+}
+header > .deck > nav > div:first-of-type + div {
+  width: 74%;
+  padding-left: 15px;
+  font-weight: 100;
+}
+header > .deck > nav > div:first-of-type + div > h2 {
+  margin: 0;
+}
+
+/**
+ * Dashboard Deck Cards Titles
+ */
+header > .deck > nav > div:first-of-type {
+  padding: 7px;
+}
+header > .deck > nav > div:first-of-type > h1 {
+  color: rgba(50, 26, 40, 0.59);
+  margin: 0;
+}
+header > .deck > nav > div:first-of-type > h1 > span {
+  display: block;
+  text-align: center;
+}
+header > .deck > nav > div:first-of-type > h1 > span.fa:nth-child(1) {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  font-size: 2em;
+}
+header > .deck > nav > div:first-of-type > h1 > span:nth-child(1) {
+  font-size: 1.8em;
+  border-bottom: 1px solid #fddcef;
+}
+header > .deck > nav > div:first-of-type > h1 > span:nth-child(2) {
+  font-size: .65em;
+  font-weight: normal;
+  letter-spacing: 3px;
+  border-bottom: 1px solid #fddcef;
+  padding: 0.25em 0 0.2em 0;
+}
+header > .deck > nav > div:first-of-type > h1 > span:nth-child(3) {
+  font-size: 1.15em;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+@media (min-width: 321px) {
+  header > .deck > nav > div:first-of-type > h1 > span:nth-child(3) {
+    line-height: 1.4em;
+  }
+}
+
+/**
+ * Dashboard Deck Cards Content
+ */
+header > .deck > nav > div + div {
+  color: #B8A4A4;
+}
+header > .deck > nav > div + div > h2 {
+  font-size: 1.4em;
+  color: rgba(255, 131, 191, 0.7);
+  text-transform: uppercase;
+}
+header > .deck > nav > div + div > p {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.57);
+}
+
+.notification {
+  position: absolute;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.85);
+  height: 29.47814vh;
+  padding: 20px;
+  color: white;
+  width: 100vw;
+  text-align: center;
+}
+.notification h1 {
+  margin: 0;
+}
+.notification > div > .link {
+  width: 14.52422vw;
+  height: 14.52422vw;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin: 10px 10px 10px 10px;
+  float: left;
+  background-size: cover;
+}
+.notification > div > p {
+  text-align: left;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+main > section.notification-list {
+  background: rgba(0, 0, 0, 0.85);
+  width: 100vw;
+  padding: 10px 15px 10px 15px;
+  overflow: auto;
+}
+main > section.notification-list.open {
+  height: 70.52186vh;
+}
+main > section.notification-list .notification-item {
+  color: white;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  clear: both;
+  margin-left: 40px;
+}
+main > section.notification-list .notification-item .link {
+  width: 12.1432vw;
+  height: 12.1432vw;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin: 18px 18px 18px 0;
+  float: left;
+  background-size: cover;
+  opacity: .8;
+}
+main > section.notification-list .notification-item div > p {
+  text-align: left;
+  padding: 10px;
+  padding-top: 5px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  color: #B8A4A4;
+  font-weight: 200;
+  font-size: .85em;
+}
+main > section.notification-list .notification-item div > h1 {
+  font-size: 1.2em;
+  margin: 0;
+  text-align: left;
+  padding-top: 5px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+footer {
+  width: 100vw;
+  height: 6vh;
+  background: black;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  border-top: 3px solid black;
+}
+footer > section > nav {
+  height: 6vh;
+  align-items: center;
+}
+footer > section > nav > i {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.37);
+  align-items: center;
+  text-align: center;
+  padding-top: 5px;
+}
+footer > section > nav > i:before {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.15);
+}
+footer > section > nav > i:nth-child(3) {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  background: white;
+  border: 3px solid black;
+  font-size: 2.1em;
+  vertical-align: middle;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-family: "Lato";
+}
+
+.calendar table {
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+  width: 68.15vw;
+  position: relative;
+  left: -8px;
+}
+.calendar td {
+  padding: 3px;
+  line-height: 19.5px;
+  text-align: center;
+}
+.calendar tr:first-child td {
+  font-weight: 800;
+}
+.calendar tr:not(:first-child) td {
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 300;
+}
+.calendar .selected, .calendar .event {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: currentColor !important;
+}
+.calendar .event {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+.calendar .event.light {
+  opacity: .2;
+}
+.calendar .event.mid {
+  opacity: .5;
+}
+.calendar .event.high {
+  opacity: .8;
+}
+
+/*# sourceMappingURL=screen.css.map */

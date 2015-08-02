@@ -1,0 +1,80 @@
+/* Setup
+   ========================================================================== */
+/**
+ * Global Structure Set Up
+ */
+
+//-----------------------------
+*{
+  box-sizing: border-box;
+}
+
+html{
+  background: #333;
+  text-rendering: geometricPrecision;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow:hidden;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family:'Lato';
+    font-weight:500;
+}
+style{
+    display: none!important;
+}
+form,label,input,button{
+    font-family:'Lato';
+    font-weight:500;   
+}
+input,button{
+    border-radius:5px;
+    background:none;
+    border:none;
+    border:1 px solid currentColor;
+}
+button{
+    background-color:black;
+}
+/*
+body:after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    //background: url(../backgrounds/screen.png);
+    //background: url(../backgrounds/smoke.jpg);
+    //NOT TO BAD 
+    background: url(../backgrounds/pastelfractal.jpg);
+    //background: url(../backgrounds/bubble.jpg);
+    //background: url(../backgrounds/sunnyroad.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    //background-position:0;
+    //background-position:-33vw;
+    background-position:-50vw;
+}*/
+//-----------------------------
+//Main Container
+main {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+//-----------------------------
+//Experiments
+//-webkit-clip-path:circle(60px at top);
+    //direction:rtl;
+
+//background-size:200vw 110vh;
+//-webkit-filter:blur(4px) saturate(1.5);
+//filter:blur(20px);*/
+    
+    //opacity:.8;
+//-----------------------------

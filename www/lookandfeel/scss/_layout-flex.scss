@@ -1,0 +1,27 @@
+/* Flex Layout
+   ========================================================================== */
+/**
+ * Flex Box Model through class
+ */
+
+//-----------------------------
+$flexDirection: row row-reverse column column-reverse;
+
+//-----------------------------
+$origins: flex-start flex-end center space-between space-around;
+
+.container {
+    display: flex;
+    @each $direction in $flexDirection {
+	    &.#{$direction}{
+	        flex-direction:#{$direction};
+	    }
+	}
+	@each $origin in $origins {
+	    &.#{$origin}{
+	        justify-content:#{$origin};
+	        -webkit-justify-content:#{$origin};
+	    }
+	}
+}
+

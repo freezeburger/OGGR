@@ -1,0 +1,34 @@
+[
+  {
+    "name": "items",
+    "fields": {
+      "name": {
+        "type": "string"
+      },
+      "description": {
+        "type": "text"
+      },
+      "user": {
+        "object": "users"
+      }
+    }
+  },
+  {
+    "name": "users",
+    "fields": {
+      "email": {
+        "type": "string"
+      },
+      "firstName": {
+        "type": "string"
+      },
+      "lastName": {
+        "type": "string"
+      },
+      "items": {
+        "collection": "items",
+        "via": "user"
+      }
+    }
+  }
+]
